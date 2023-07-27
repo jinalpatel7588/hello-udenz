@@ -1,0 +1,163 @@
+/* Canvas CSS */
+.canvas-div {
+    display: flex;
+    align-items: top;
+    width: 100%;
+    background-color: #ebecf0;
+}
+
+.canvas-icon {
+    background-color: #18191b;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.canvas-icon .icon-btn {
+    border: 0;
+    padding: 10px 5px;
+    width: 72px;
+    min-height: 72px;
+    height: auto;
+    background-color: #18191b;
+    color: rgb(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s linear;
+}
+
+.canvas-icon .icon-btn:hover {
+    color: rgb(255, 255, 255);
+}
+
+.color-input {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    padding: 0 2px;
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.canvas-preview {
+    padding: 80px 20px 70px;
+    margin: 0 auto;
+}
+
+.canvas-preview-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+
+.canvas-div {
+    padding: 30px;
+    display: block;
+    background-color: #ebecf0;
+    padding: 30px;
+}
+
+.choose-logo {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    height: fit-content;
+}
+
+.canvas-div-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.format-btn {
+    border: 0;
+    outline: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.2s linear;
+}
+
+.format-btn:hover {
+    background-color: #E9E9E9;
+}
+
+.canvas-text-format {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.canvas-header {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+.download-btn {
+    background-color: #CC2030;
+    color: #FFFFFF;
+    padding: 8px 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+.choose-logo {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.choose-logo h6 {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+    white-space: nowrap;
+}
+
+.choose-logo .logo-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.choose-logo .logo-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid #E6E6E6;
+    object-fit: cover;
+}

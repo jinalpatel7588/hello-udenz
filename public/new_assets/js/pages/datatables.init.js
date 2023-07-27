@@ -1,0 +1,43 @@
+var handleDataTableButtons = function () {
+        "use strict";
+        0 !== $("#datatable-buttons").length && $("#datatable-buttons").DataTable({
+            dom: "Bfrtip",
+            buttons: [{
+                extend: "copy",
+                className: "btn-sm"
+            }, {
+                extend: "csv",
+                className: "btn-sm"
+            }, {
+                extend: "excel",
+                className: "btn-sm"
+            }, {
+                extend: "pdf",
+                className: "btn-sm"
+            }, {
+                extend: "print",
+                className: "btn-sm"
+            }],
+            responsive: !0
+        })
+    },
+    TableManageButtons = function () {
+        "use strict";
+        return {
+            init: function () {
+                handleDataTableButtons()
+            }
+        }
+    }();
+$(document).ready(function () {
+    $("#datatable").dataTable()({
+        scrollY: "300px",
+        scrollX: !0,
+        scrollCollapse: !0,
+        paging: !1,
+        fixedColumns: {
+            leftColumns: 1,
+            rightColumns: 1
+        }
+    });
+}), TableManageButtons.init();

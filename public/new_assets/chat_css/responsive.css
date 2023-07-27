@@ -1,0 +1,776 @@
+@media (max-width: 375px) {
+    .worktype-details {
+        flex-wrap: wrap;
+    }
+
+    .catalog-filter-wrap .textprimary-regular {
+        margin-right: 1rem;
+    }
+
+    .seller-login-section .form-heading {
+        font-size: 3rem;
+        line-height: 4rem;
+    }
+
+    .progresstab-heading {
+        font-size: 5rem;
+        line-height: 6rem;
+    }
+
+    .progresstab-step-content .progresstab-step span {
+        min-width: 3rem;
+        min-height: 3rem;
+    }
+
+    .progresstab-step-content {
+        padding-left: 3rem;
+    }
+
+    .progresstab-step-content:not(:last-child):after {
+        left: 1.4rem;
+    }
+
+    .file-text-wrap .file-content .video-file{
+        width: 25rem;
+        height: 175px;
+    }
+
+    .post-job-file-preview{
+        flex-wrap: wrap;
+    }
+
+    .review-offers-wrap .title-1{
+        font-size: 4rem;
+        line-height: 5rem;
+    }
+    .review-offers-wrap .job-post-card{
+        padding: 20px;
+    }
+
+    .dont-offer-text{
+        font-size: 2.8rem;
+        line-height: 3.5rem;
+    }
+
+    #submitOfferModal .submit-offer-wrap .select-file-input .btn-brand-outline{
+        min-width: auto;
+    }
+
+    .code-apply-btn {
+        max-width: 12rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .personal-info-section .select-payment-card .method-wrap {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .profile-content-wrap {
+        padding-left: 2rem;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .profile-img-wrap {
+        top: 11rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .worktype-details {
+        flex-wrap: wrap;
+    }
+
+    .join-btn,
+    .login-btn {
+        width: 20rem;
+        margin: 0 1rem;
+    }
+
+    .login-button-wrap {
+        flex-direction: row;
+        margin-top: 1.5rem;
+        margin-left: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-bottom .navbar-bottom-link a {
+        font-size: 1.4rem;
+    }
+
+    .worktype-details {
+        flex-wrap: wrap;
+    }
+
+    .join-btn,
+    .login-btn {
+        width: 20rem;
+        margin: 0 1.5rem;
+    }
+
+    .progresstab-card .heading-4 {
+        font-size: 2rem;
+    }
+    .form-footer{
+        padding: 2.4rem 2rem;
+    }
+    .gig-tab-wrapper .progresstab-sticky{
+        position: unset;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    .postrequest-card .s-job-details-wrap{
+        flex-wrap: wrap;
+    }
+    .chat-left{
+        max-width: 28%;
+    }
+    .chat-right{
+        max-width: 78%;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .chat-wrap{ 
+        flex-wrap: wrap;
+    }
+    .chat-left,
+    .chat-right{
+        max-width: 100%;
+    }
+    #main-chat{
+        max-width: 76.7rem;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .chat-left{
+        min-height: 40rem;
+    } 
+    .messages-chat-wrap{ 
+        max-height: 60rem; 
+    }
+    
+
+    .register-form-bg {
+        padding: 12rem 15px 5rem 15px;
+        min-height: auto;
+    }
+
+    .register-image-bg {
+        padding: 5rem 15px;
+        min-height: auto;
+    }
+
+    .main-header .navbar {
+        padding: 2rem 15px;
+    }
+
+    .navbar-top-icon {
+        flex-direction: row;
+        justify-content: end;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    .navbar-top-icon .btn-brand-outline {
+        padding: 1rem 2.6rem;
+    }
+
+    .navbar-top-icon .nav-item {
+        margin: 0 1rem;
+    }
+
+    .navbar-top-icon .nav-item:first-child {
+        margin-left: 0;
+    }
+
+    .main-header .navbar-bottom {
+        padding: 0;
+    }
+
+    .navbar-bottom-link {
+        padding: 0.5rem 0;
+    }
+
+    .navbar-bottom-link .nav-item .nav-link {
+        padding: 0.5rem 1rem;
+    }
+
+    .comment-text .paragraph-regular {
+        padding: 0 0 0 7rem;
+    }
+
+    .info-popup-wrap .dropdown-menu {
+        right: 0;
+        left: auto;
+    }
+
+    .logotype-navbar {
+        display: none;
+    }
+
+    .sidebar-inner {
+        left: -115%;
+        top: 15.8rem;
+        max-height: calc(100vh - 15.8rem);
+        transition: all 0.5s ease;
+    }
+
+    .main-container {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .sidebar-inner .sidebar-close{
+        display: block;
+    }
+
+    .sidebar-wrap.active .sidebar-inner {
+        left: 0;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar-wrap.active .sidebar .bg-shadow {
+        visibility: visible;
+        opacity: 0.4;
+    }
+    .footer-btn-wrap .btn-brand,
+    .footer-btn-wrap .btn-brand-outline { 
+        min-width: auto;
+    }
+
+    .postrequest-card{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .postrequest-card-image{
+        width: 100%;
+    }
+
+    .postrequest-card-image img{
+        max-width: 100%;
+        max-height: 300px;
+        width: 100%;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    html {
+        font-size: 9px;
+    }
+
+    #main-chat{
+        max-width: 57.6rem;
+        margin: 0 auto;
+    }
+
+    .profile-banner .img-fluid {
+        height: 25rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .profile-img-wrap {
+        top: 19rem;
+    }
+
+    .change-banner-wrap .img-fluid {
+        height: 25rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .login-button-wrap {
+        flex-direction: row;
+        margin-top: 1.5rem;
+        margin-left: auto;
+    }
+
+    .join-btn,
+    .login-btn {
+        width: 20rem;
+        margin: 0 1rem;
+    }
+
+    .overview-content .heading-1 {
+        font-size: 4.5rem;
+        line-height: 6rem;
+    }
+
+    .s-job-details-wrap{
+        flex-wrap: wrap;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    html {
+        font-size: 8px;
+    }
+
+    .xs-hide-sm {
+        display: none;
+    }
+
+    .hero-content .title-1 {
+        font-size: 5rem;
+        line-height: 6.5rem;
+    }
+
+    .info-text .tag-text {
+        font-size: 12px;
+    }
+
+    .comment-text .paragraph-regular {
+        padding: 0;
+    }
+
+    .profile-img img {
+        width: 10rem;
+    }
+
+    .profile-content {
+        padding-left: 3rem;
+        padding-top: 5rem;
+    }
+
+    .profile-img-wrap {
+        top: 11rem;
+    }
+
+    .profile-banner .img-fluid {
+        height: 15rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .change-banner-wrap .img-fluid {
+        height: 15rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .review-rating {
+        gap: 1rem;
+    }
+
+    .review-rating .heading-3 {
+        font-size: 2rem;
+    }
+
+    .review-rating {
+        flex-wrap: wrap;
+    }
+
+    .ratingbar-wrap .rating-bar {
+        min-width: 12rem;
+    }
+
+    .review-content {
+        margin-bottom: 5.2rem;
+    }
+
+    .change-banner-wrap .img-fluid {
+        height: 15rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .change-banner-wrap .change-img {
+        width: 10rem;
+    }
+
+    .change-banner-wrap .change-img img {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .change-banner-wrap .change-hover-text .img-fluid {
+        height: 15rem;
+    }
+
+    .change-banner-wrap .change-img::before,
+    .change-banner-wrap .change-hover-text::before {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+
+    .login-button-wrap {
+        width: 100%;
+    }
+
+    .login-button-wrap .nav-item {
+        width: 50%;
+        margin: 0 1rem;
+    }
+
+    .join-btn,
+    .login-btn {
+        width: 100%;
+        margin: 0 0;
+    }
+
+    .method-text {
+        margin-left: 0;
+        gap: 0.4rem;
+    }
+
+    .dropdown {
+        position: static;
+    }
+
+    .message-popup-wrap .dropdown-menu, .notification-popup-wrap .dropdown-menu {
+        width: calc(100% - 3rem);
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 88%;
+    }
+
+    .profile-popup-wrap .dropdown-menu {
+        width: calc(100% - 3rem);
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 88%;
+    }
+
+    .info-popup-wrap .dropdown-menu {
+        width: calc(100% - 3rem);
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 88% !important;
+        min-width: fit-content;
+    }
+
+    .hero-serach-dropdown .info-popup-wrap .dropdown-menu {
+        min-width: calc(100vw - 3rem);
+        left: 0;
+        right: -16px !important;
+    }
+
+    .dispute-section .title-1 {
+        font-size: 4rem;
+        line-height: 6rem;
+        margin-bottom: 3rem;
+    }
+
+    .feedback-section .title-1 {
+        font-size: 4rem;
+        line-height: 6rem;
+    }
+
+    .feedback-section .body-text {
+        margin-bottom: 3rem;
+    }
+
+    .feedback-footer,
+    .dispute-footer {
+        justify-content: center;
+    }
+
+    .form-footer {
+        padding: 2.4rem 3rem;
+    } 
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .search-div-icon {
+        display: none;
+    }
+
+    #changesSaved .modal-dialog {
+        max-width: 54rem;
+    }
+
+    .services-slider-wrap {
+        flex: 0 0 56.8%;
+        max-width: 56.8%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .services-slider-wrap {
+        flex: 0 0 64.8%;
+        max-width: 64.8%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .navbar-toggle-div {
+        display: none;
+    }
+
+    .services-slider-wrap {
+        flex: 0 0 73.5%;
+        max-width: 73.5%;
+    }
+
+    .progresstab-sticky {
+        position: sticky;
+        top: 13.2rem;
+        left: 0;
+        z-index: 890;
+        height: fit-content;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1450px;
+    }
+
+    .main-header .container-fluid {
+        max-width: 1450px;
+    }
+
+    .email-alert .container-fluid {
+        max-width: 1450px;
+    }
+
+    .services-slider-wrap {
+        flex: 0 0 79%;
+        max-width: 79%;
+    }
+
+    .progresstab-tab-row .col-xl-3 {
+        flex: 0 0 27.5%;
+        max-width: 27.5%;
+    }
+
+    .progresstab-tab-row .col-xl-9 {
+        flex: 0 0 72.5%;
+        max-width: 72.5%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .container {
+        max-width: 1600px;
+    }
+
+    .main-header .container-fluid {
+        max-width: 1600px;
+    }
+
+    .email-alert .container-fluid {
+        max-width: 1600px;
+    }
+
+    .services-slider-wrap {
+        flex: 0 0 83%;
+        max-width: 83%;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1550px) {
+    .worktype-details {
+        flex-wrap: wrap;
+    }
+
+    .worktype-content:first-child {
+        border-right: 0;
+    }
+
+    .join-btn,
+    .login-btn {
+        width: 24rem;
+    }
+}
+
+@media (max-width:1320px) {
+    .hero-serach-dropdown .info-popup-wrap .dropdown-menu {
+        right: 0;
+        left: auto !important;
+        top: 160% !important;
+    } 
+}
+
+@media (min-width: 1200px) and (max-width: 1280px) {
+    .catalog-filter-row .col-xl-3 {
+        max-width: 30%;
+        flex: 0 0 30%;
+    }
+
+    .catalog-filter-row .col-xl-4 {
+        max-width: 35%;
+        flex: 0 0 35%;
+    } 
+}
+
+@media (min-width:1200px) and (max-width: 1780px) {
+    .review-publish-wrap .col-xl-8{
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .review-publish-wrap .col-xl-4{
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+} 
+
+@media (min-width: 1200px) and (max-width: 1450px) {
+    .gig-tab-wrapper .progresstab-tab-row .col-xl-3.progresstab-sticky{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .gig-tab-wrapper .progresstab-sticky{
+        position: unset;
+    } 
+    .gig-tab-wrapper .progresstab-tab-row .col-xl-9{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width:1416px){
+    .chating-date-sticky{
+        top: 20.9rem;
+    }
+}
+
+@media (max-width:352px){
+    .chating-date-sticky{
+        top: 233px;
+    }
+}
+
+
+@media (max-width: 991.98px) {
+    .mega-menu-div {
+        height: 200px;
+        overflow: auto;
+    }
+    .mega-menu-main-div::before {
+        display: block;
+    }
+}
+
+@media (max-width:1450px){
+    .hero-bg-1{  
+        top: unset;
+        bottom: 40px;  
+        left: 20px;
+        max-width: 390px;
+        margin: 0;
+    }
+
+    .hero-bg-2{
+        top: 80px;
+        max-width: 250px;
+    }
+
+    .hero-bg-3{  
+        right: 80px;
+        max-width: 260px;
+    }
+}
+
+@media (max-width:1200px){
+    .hero-banner{
+        height: 550px;
+    }
+
+    .hero-bg-1{   
+        left: 0px;
+        max-width: 290px; 
+    }
+
+    .hero-bg-2{
+        top: 80px;
+        max-width: 230px;
+        right: -30px;
+    }
+
+    .hero-bg-3{  
+        right: 40px;
+        max-width: 240px;
+        bottom: 30px;
+    }
+}
+
+@media (max-width:992px){
+    .hero-banner{
+        height: auto;
+        padding-top: 24rem;
+    }
+
+    .hero-bg-1{   
+        top: 0;
+        bottom: unset;
+        left: -10px;
+        max-width: 250px;
+    }
+
+    .hero-bg-2{
+        top: 50px;
+    }
+
+    .hero-bg-3{  
+        right: -30px; 
+        bottom: 80px;
+    }
+}
+
+@media (max-width:768px){
+    .hero-banner{ 
+        padding: 24rem 0;
+    }
+
+    .hero-bg-1{     
+        max-width: 230px; 
+    }
+
+    .hero-bg-2{ 
+        top: 30px; 
+    }
+
+    .hero-bg-3{   
+        bottom: -10px;
+    }
+}
+
+@media (max-width:576px){
+    .hero-banner{ 
+        padding: 24rem 0;
+    }
+
+    .hero-bg-1{     
+        max-width: 180px;
+        top: 10px;
+    }
+
+    .hero-bg-2{ 
+        top: 80px;
+        max-width: 150px;
+        right: -50px;
+    }
+
+    .hero-bg-3{   
+        max-width: 210px;
+    }
+}
