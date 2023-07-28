@@ -5,15 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Site Title -->
-    <title>Home</title>
-    <link rel="shortcut icon" href="images/Udenz Hello icon.png">
+    <title>Udenz Hello</title>
+    <link rel="shortcut icon" href="{{ asset('new_front_assets/images/Udenz Hello icon.png') }}">
     <!-- Swiper js -->
-    <link rel="stylesheet" href="{{asset('public/new_front_assets/css/swiper-bundle.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('new_front_assets/css/swiper-bundle.min.css') }}" type="text/css" />
     <!--Material Icon -->
 
-    <link rel="stylesheet" type="text/css" href="{{asset('public/new_front_assets/css/materialdesignicons.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('public/new_front_assets/css/bootstrap.min.css')}}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{asset('public/new_front_assets/css/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('new_front_assets/css/materialdesignicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('new_front_assets/css/bootstrap.min.css') }}" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('new_front_assets/css/style.css') }}" />
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="60">
@@ -22,8 +22,10 @@
         <div class="container">
             <!-- LOGO -->
             <a class="logo text-uppercase" href="index.html">
-                <img src="{{asset('public/new_front_assets/css/images/logo-chat.png')}}" alt="" class="logo-dark logo-image" />
-                <img src="{{asset('public/new_front_assets/css/images/logo-chat.png')}}" alt="" class="logo-light " />
+                <img src="{{ asset('new_front_assets/css/images/logo-chat.png') }}" alt=""
+                    class="logo-dark logo-image" />
+                <img src="{{ asset('new_front_assets/css/images/logo-chat.png') }}" alt=""
+                    class="logo-light " />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +51,8 @@
                 </ul>
                 <ul class="navbar-nav navbar-center">
                     <li class="nav-item">
-                        <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        {{-- <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a> --}}
+                        <button class="btn loginBtn" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
                     </li>
                     <!--<li class="nav-item">-->
                     <!--    <a href="#" class="btn btn-sm nav-btn" data-bs-toggle="modal"-->

@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('content')
-
- <section class="hero-4" id="home">
+    <section class="hero-4" id="home">
         <div class="bg-overlay-img"></div>
         <div class="container">
             <div class="row" style="align-items: center;">
@@ -27,7 +26,8 @@
                     <div class="mt-5 mt-lg-0">
 
                         <div class="banner-img">
-                            <img src="{{asset('public/new_front_assets/images/image-back.png')}}" alt="" class=" d-block mx-auto">
+                            <img src="{{ asset('new_front_assets/images/image-back.png') }}" alt=""
+                                class=" d-block mx-auto">
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="side-image-set mt-3">
                         <h6 class="subtitle"><span class="fw-bold"> &nbsp; </span></h6>
                         <div class="about-us-image">
-                            <img src="{{asset('public/new_front_assets/images/about-us-image.jpg')}}">
+                            <img src="{{ asset('new_front_assets/images/about-us-image.jpg') }}">
                         </div>
                     </div>
                 </div>
@@ -71,12 +71,14 @@
                 <div class="col-lg-6">
                     <div class="work-box px-lg-5 text-center mb-5 mb-lg-0">
                         <div class="work-icon bg-soft-primary mb-4">
-                            <img src="{{asset('public/new_front_assets/images/registration.svg')}}" class="w-75" style="vertical-align: initial;">
+                            <img src="{{ asset('new_front_assets/images/registration.svg') }}" class="w-75"
+                                style="vertical-align: initial;">
                         </div>
                         <h5 class="fw-semibold">1. Register to the web app</h5>
                         <p class="text-muted">to access Udenz Hello's communication platform for dental professionals.
                         </p>
-                        <img src="{{asset('public/new_front_assets/images/arrow-bottom.png')}}" alt="" class="work-arrow" />
+                        <img src="{{ asset('new_front_assets/images/arrow-bottom.png') }}" alt=""
+                            class="work-arrow" />
                     </div>
                     <div class="work-box px-lg-5 text-center mb-5 mb-lg-0">
                         <div class="work-icon bg-soft-success mb-4">
@@ -89,14 +91,16 @@
                     <div class="work-box px-lg-5 text-center mb-5 mb-lg-0">
                         <div class="work-icon bg-soft-warning mb-4">
 
-                            <img src="{{asset('public/new_front_assets/images/invite.svg')}}" class="invite-logo" style="vertical-align: initial;">
+                            <img src="{{ asset('new_front_assets/images/invite.svg') }}" class="invite-logo"
+                                style="vertical-align: initial;">
 
                         </div>
                         <h5 class="fw-semibold">3. Invite members into the room</h5>
                         <p class="text-muted">enabling seamless communication and enhanced teamwork among dental team
                             members and clients.
                         </p>
-                        <img src="{{asset('public/new_front_assets/images/arrow-top.png')}}" alt="" class="work-arrow-down" />
+                        <img src="{{ asset('new_front_assets/images/arrow-top.png') }}" alt=""
+                            class="work-arrow-down" />
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -174,7 +178,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{asset('public/new_front_assets/images/feat-svg.svg')}}" alt="" class="img-fluid d-block mx-auto ms-lg-auto" />
+                    <img src="{{ asset('new_front_assets/images/feat-svg.svg') }}" alt=""
+                        class="img-fluid d-block mx-auto ms-lg-auto" />
                 </div>
             </div>
         </div>
@@ -233,9 +238,11 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="formPhone" class="form-label">mobile number</label>
-                                            <input type="text" class="form-control" id="formPhone"
-                                                placeholder="Enter mobile number" required />
+                                            <label for="formPhone" class="form-label">Mobile Number
+                                            </label>
+                                            <input type="text" onkeypress="return isNumber(event)"
+                                                class="form-control" id="formPhone" placeholder="Enter mobile number"
+                                                required />
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -248,12 +255,11 @@
                                     <div class="col-12">
                                         <div class="mb-4">
                                             <label for="formMessages" class="form-label">Message</label>
-                                            <textarea class="form-control" id="formMessages" rows="4"
-                                                placeholder="Enter message" required></textarea>
+                                            <textarea class="form-control" id="formMessages" rows="4" placeholder="Enter message" required></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-gradient-danger">Send Messages </button>
+                                <button type="submit" class="btn btn-gradient-danger">Send Message </button>
                             </form>
                         </div>
                     </div>
@@ -264,7 +270,7 @@
     <!-- contact end -->
     <section class="background-banner msg">
         <div class="form-position">
-            <form method="post" action="{{route('apply-waiting-list')}}">
+            <form method="post" action="{{ route('apply-waiting-list') }}">
                 @csrf
                 <div class="form-flex">
                     <div>
@@ -280,6 +286,4 @@
 
     </section>
     <!-- footer & cta start -->
-  
-
 @endsection
