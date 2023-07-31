@@ -52,16 +52,16 @@
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <input id="email" type="email"
+                                        <input id="email" type="text"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" autofocus
+                                            value="{{ old('email') }}" autocomplete="email" autofocus
                                             placeholder="Email" maxlength="60">
                                             <label id="emailAddress-error" class="error" for="emailAddress" style="color: red; display: none">Please Enter Email</label>
                                     </div>
                                     <div class="form-group">
                                         <input id="password" type="password"
                                             class="form-control @error('password') is-invalid @enderror" name="password"
-                                            required placeholder="Password" maxlength="30">
+                                         placeholder="Password" maxlength="30">
                                     </div>
                                     @if (Route::has('password.request'))
                                         <a href="{{ route('password.request') }}" class="forgot-link">

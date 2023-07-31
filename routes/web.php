@@ -110,7 +110,7 @@ Route::post('/contact-us',[ContactUsController::class,'store'])->name('contact.s
 
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('admin.contactUs');
 
-Route::delete('/{contact}', [ContactUsController::class, 'destroy'])->name('admin.contactUs.destroy');
+Route::delete('/contact-us/{contact}', [ContactUsController::class, 'destroy'])->name('admin.contactUs.destroy');
 
 
 

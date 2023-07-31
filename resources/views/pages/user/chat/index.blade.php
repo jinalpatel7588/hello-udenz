@@ -87,7 +87,7 @@
                         <a class="profile-circle" href="#" role="button" id="profile-menu" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             @if (Auth::user())
-                                @if(!empty(Auth::user()->photo))
+                                @if(!empty(Auth::user()->photo) && file_exists('public'.Auth::user()->photo))
                                     <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" />
                                 @else
                                     <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" />
@@ -105,7 +105,7 @@
                                         <a class="profile-circle" href="#" role="button" id="profile-menu"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             @if (Auth::user())
-                                                @if(!empty(Auth::user()->photo))
+                                                @if(!empty(Auth::user()->photo) && file_exists('public'.Auth::user()->photo))
                                                     <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" />
                                                 @else
                                                     <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" />

@@ -31,6 +31,7 @@
                                     onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
                                     class="form-control" maxlength="60">
                             </div>
+                            <input type="hidden" value="{{ $user->email }}" name="email" id="email">
                             <!--<div class="parsley-input col-md-6  mg-b-20">-->
                             <!--    <label>{{ __('Email') }}<span class="tx-danger">*</span></label>-->
                             <!--    <input type="email" value="{{ $user->email }}" name="email" id="email"-->

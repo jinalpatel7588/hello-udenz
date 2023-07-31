@@ -89,10 +89,7 @@ class UserController extends Controller
             'email' => [Rule::unique('users')->ignore($user->email, 'email')],
         ]);
         $user = User::find($user->id);
-        $user->password = Hash::make($request->password);
-        $user->email = $request->email;
         $user->name = $request->name;
-        $user->user_password = $request->password;
         $user->save();
         return redirect()->route('admin.users.index')->with('success', 'User Updated');
     }
