@@ -8,14 +8,14 @@
 
         /* my css */
         /* .login-background {
-            background-image: url("{{ asset('new_assets/images/login-background.jpg') }}");
-            object-fit: cover;
-            width: 100%;
-        } */
+                background-image: url("{{ asset('new_assets/images/login-background.jpg') }}");
+                object-fit: cover;
+                width: 100%;
+            } */
 
         .logo-imag img {
             height: 70px;
-                width: 337px;
+            width: 337px;
 
         }
 
@@ -63,7 +63,8 @@
                                     <a href="" class="text-success">
                                         <span>
                                             @php $siteSetting = ""; @endphp
-                                            <img class="mt-3" @if ($siteSetting) @if ($siteSetting->logo) src="{{ asset('storage/' . $siteSetting->logo) }}" @else src="{{ asset('new_assets/images/logo.png') }}" @endif
+                                            <img class="mt-3"
+                                                @if ($siteSetting) @if ($siteSetting->logo) src="{{ asset('storage/' . $siteSetting->logo) }}" @else src="{{ asset('new_assets/images/logo.png') }}" @endif
                                             @else src="{{ asset('new_assets/images/logo-black.png') }}" @endif
                                             alt="logo" height="36"></span>
                                     </a>
@@ -109,7 +110,7 @@
             </div>
         </div>
     </div>
-      {{--  <div class="cookie"
+    {{--  <div class="cookie"
         style=" bottom: 0;z-index: 1000;padding: 25px;
     background-color: black;position: fixed; width: 100%;" id="exampleModal">
         <div class="col-md-12" style=";bottom: 0px;z-index: 999;;width: 100%;">
@@ -119,12 +120,11 @@
             <button type="submit" style="background-color:#3b62ac" class="btn" onclick="onSaveClick()">Accept</button>
         </div>
     </div>  --}}
-
 @endsection
 @section('footer-link')
 @endsection
 @section('js')
-{{--  <script>
+    {{--  <script>
     $(document).ready(function() {
         if (!getCookieConsent()) {
             $('.cookie').removeClass('d-none');
