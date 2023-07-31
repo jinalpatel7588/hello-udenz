@@ -4,6 +4,8 @@ use App\Enums\UserType;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\ChatController;
 use App\Http\Controllers\User\ProfileController;
@@ -23,41 +25,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Changed By neel
-Route::get("/dentist-privacy", function(){
+Route::get("/dentist-privacy-policy", function(){
    return View::make("dentist-privacy");
 })->name('dentist.privacy');
 
-Route::get("/env", function(){
+Route::get("/environmental-and-social-responsibilities-policy", function(){
    return View::make("env");
 })->name('env');
 
-Route::get("/gdpr", function(){
+Route::get("/gdpr-terms-and-conditions", function(){
    return View::make("gdpr");
 })->name('gdpr');
 
-Route::get("/privacy", function(){
+Route::get("/privacy-and-prolicy", function(){
    return View::make("privacy-policy");
 })->name('privacy');
 
-Route::get("/terms-condition", function(){
+Route::get("/terms-conditions", function(){
    return View::make("terms-condition");
 })->name('terms.condition');
 Route::get("/patient-privacy-policy", function(){
    return View::make("patient-privacy");
 })->name('patient.privacy.policy');
 
-// Route::get('/', [DashboardController::class, 'index']);
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', [DashboardController::class, 'index'])->name('home');
+Route::get('/home', [DashboardController::class, 'index'])->name('index');
 Route::post('/apply-waiting-list', [HomeController::class, 'ApplyWaitingList'])->name('apply-waiting-list');
+Route::get('/waiting-list', [HomeController::class, 'waitingList'])->name('waitingList');
 Route::get('/user', [UserController::class, 'index'])->name('index');
-Route::get('/home', [UserController::class, 'index'])->name('home');
 Route::get('/privacy-policy', [SiteSettingController::class, 'privacyPolicy'])->name('privacy.policy');
 // Route::get('/patient-privacy-policy', [SiteSettingController::class, 'patientPrivacyPolicy'])->name('patient.privacy.policy');
 Route::get('/social-policy', [SiteSettingController::class, 'socialPolicy'])->name('social-policy');
-Route::get('/dentist-privacy-policy', [SiteSettingController::class, 'dentistPrivacyPolicy'])->name('dentist.privacy.policy');
-Route::get('/gdpr-terms-and-conditions', [SiteSettingController::class, 'GdprTermsAndConditions'])->name('terms.and.conditions');
+// Route::get('/dentist-privacy-policy', [SiteSettingController::class, 'dentistPrivacyPolicy'])->name('dentist.privacy.policy');
+// Route::get('/gdpr-terms-and-conditions', [SiteSettingController::class, 'GdprTermsAndConditions'])->name('terms.and.conditions');
 Route::get('/terms-and-conditions', [SiteSettingController::class, 'helloTermsAndConditions'])->name('hello.terms.and.conditions');
-Route::get('/environmental-and-Social-policy', [SiteSettingController::class, 'EnvironmentalAndSocialPolicy'])->name('env.and.social.privacy');
+// Route::get('/environmental-and-Social-policy', [SiteSettingController::class, 'EnvironmentalAndSocialPolicy'])->name('env.and.social.privacy');
 Route::get('/cookies-policy',function(){
     return view('pages.site-settings.cookies-policy');
     })->name('cookies.policy');
@@ -67,7 +69,7 @@ Auth::routes();
 Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('users')->name('users.')->group(function () {
-      //  Route::get('/', [UserController::class, 'index'])->name('index');
+       Route::get('/', [UserController::class, 'index'])->name('index');
         Route::get('/add', [UserController::class, 'create'])->name('create');
         Route::post('/', [UserController::class, 'store'])->name('store');
         Route::get('/{user}', [UserController::class, 'edit'])->name('edit');
@@ -97,11 +99,20 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::get('/edit/{user}', [ProfileController::class, 'edit'])->name('edit');
     Route::put('/update/{user}', [ProfileController::class, 'update'])->name('update');
-    
+
     Route::get('/logout', [LoginController::class, 'userLogout'])->name('logout');
     Route::post('/registeruser', [LoginController::class, 'register'])->name('register');
     Route::get('/', [LoginController::class, 'userLogin'])->name('login');
 });
+Route::get('/uniqueemail', [LoginController::class, 'uniqueemail'])->name('uniqueemail');
+
+Route::post('/contact-us',[ContactUsController::class,'store'])->name('contact.store');
+
+Route::get('/contact-us',[ContactUsController::class,'index'])->name('admin.contactUs');
+
+Route::delete('/{contact}', [ContactUsController::class, 'destroy'])->name('admin.contactUs.destroy');
+
+
 
 Route::get('/migrate', function () {
     Artisan::call('migrate');
@@ -113,3 +124,4 @@ Route::get('/migrate', function () {
     Artisan::call('optimize:clear');
     return "Done!";
 });
+

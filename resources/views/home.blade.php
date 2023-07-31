@@ -1,8 +1,16 @@
 @extends('layouts.main')
+
+@section('title', 'Udenz Hello')
 @section('content')
     <section class="hero-4" id="home">
         <div class="bg-overlay-img"></div>
         <div class="container">
+
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="row" style="align-items: center;">
                 <div class="col-lg-6">
                     <h1 class="hero-title text-white fw-bold mb-4 display-5 head-font">Innovative Communication
@@ -219,20 +227,22 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-8">
                     <div class="card contact-form rounded-lg mt-4 mt-lg-0">
+
                         <div class="card-body p-5">
-                            <form>
+                            <form id="contactUs" action="{{ route('contact.store') }}" method="POST">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="formFirstName" class="form-label"> Name</label>
-                                            <input type="text" class="form-control" id="formFirstName"
+                                            <input type="text" name="name" class="form-control" id="formFirstName"
                                                 placeholder="Enter name" required />
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="formEmail" class="form-label">Email Address</label>
-                                            <input type="email" class="form-control" id="formEmail"
+                                            <input type="email" name="email" class="form-control" id="formEmail"
                                                 placeholder="Enter email address" required />
                                         </div>
                                     </div>
@@ -240,22 +250,24 @@
                                         <div class="mb-3">
                                             <label for="formPhone" class="form-label">Mobile Number
                                             </label>
-                                            <input type="text" onkeypress="return isNumber(event)"
-                                                class="form-control" id="formPhone" placeholder="Enter mobile number"
-                                                required />
+                                            <input type="text" name="mobile_number"
+                                                onkeypress="return isNumber(event)" class="form-control" id="formPhone"
+                                                placeholder="Enter mobile number"  required maxlength="10" />
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="formSubject" class="form-label">Subject</label>
-                                            <input type="text" class="form-control" id="formSubject"
-                                                placeholder="Enter subject" required />
+                                            <input type="text" name="subject" class="form-control" id="formSubject"
+                                                placeholder="Enter subject"/>
+
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-4">
                                             <label for="formMessages" class="form-label">Message</label>
-                                            <textarea class="form-control" id="formMessages" rows="4" placeholder="Enter message" required></textarea>
+                                            <textarea class="form-control" name="message" id="formMessages" rows="4" placeholder="Enter message"></textarea>
+
                                         </div>
                                     </div>
                                 </div>
@@ -270,20 +282,180 @@
     <!-- contact end -->
     <section class="background-banner msg">
         <div class="form-position">
-            <form method="post" action="{{ route('apply-waiting-list') }}">
+            <form method="post" action="{{ route('apply-waiting-list') }}" id="frm">
                 @csrf
                 <div class="form-flex">
                     <div>
-                        <input type="email" class="form-control form-control-submit" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Enter your email address">
+                        <input type="email" name="waitingEmail" class="form-control form-control-submit"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email address">
                     </div>
                     <button type="submit" class="btn btn-apply email-alert-btn" id="submit">Apply Now</button>
 
                 </div>
+                <label id="exampleInputEmail1-error" class="error" for="exampleInputEmail1"></label>
                 <div class="alert alert-success hide email-alert">User Created successfully</div>
             </form>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+        <script>
+            jQuery.validator.addMethod("validate_email", function(value, element) {
+                if (/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }, "Please enter a valid Email.");
+            var value = $("#password").val();
+            $.validator.addMethod("checklower", function(value) {
+                return /[a-z]/.test(value);
+            });
+            $.validator.addMethod("checkupper", function(value) {
+                return /[A-Z]/.test(value);
+            });
+            $.validator.addMethod("checkdigit", function(value) {
+                return /[0-9]/.test(value);
+            });
+            $.validator.addMethod("pwcheck", function(value) {
+                return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) && /[a-z]/.test(value) && /\d/.test(value) &&
+                    /[A-Z]/.test(value);
+            });
+            jQuery('#frm').validate({
+                rules: {
+                    waitingEmail: {
+                        required: true,
+                        validate_email: true,
+                        remote: {
+                            url: "{{ url('uniqueemail') }}",
+                            type: "GET",
+                            data: {
+                                action: function() {
+                                    return "1";
+                                },
+                            }
+                        }
+                    },
+                },
+                messages: {
+                    waitingEmail: {
+                        required: "Please enter email address",
+                        validate_email: "Please enter a valid email address",
+                        remote: "Email id already registred",
+                    },
+                },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+        </script>
+
     </section>
     <!-- footer & cta start -->
+
+    <div class="cookie"
+        style=" bottom: 0;z-index: 1000;padding: 25px;
+background-color: black;position: fixed; width: 100%;"
+        id="exampleModal">
+        <div class="col-md-12" style=";bottom: 0px;z-index: 999;;width: 100%;">
+            <h4 style="color: white;">Cookie Policy </h4>
+            <p style="color: white;"> Our website uses cookies to improve your experience. Learn more: <a
+                    style="color: #3b62ac;" href="{{ route('cookies.policy') }}">cookies policy</a></p>
+            <button type="submit" style="background-color:#3b62ac" class="btn"
+                onclick="onSaveClick()">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            $(".alert").remove();
+        }, 3000); // 3 secs
+    </script>
+
+    <script></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script>
+        jQuery.validator.addMethod("validate_email", function(value, element) {
+            if (/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
+                return true;
+            } else {
+                return false;
+            }
+        }, "Please enter a valid Email.");
+        var value = $("#inputPasseord").val();
+        $.validator.addMethod("checklower", function(value) {
+            return /[a-z]/.test(value);
+        });
+        $.validator.addMethod("checkupper", function(value) {
+            return /[A-Z]/.test(value);
+        });
+        $.validator.addMethod("checkdigit", function(value) {
+            return /[0-9]/.test(value);
+        });
+        $.validator.addMethod("pwcheck", function(value) {
+            return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) && /[a-z]/.test(value) && /\d/.test(value) &&
+                /[A-Z]/.test(value);
+        });
+        $('#contactUs').validate({
+            ignore: [],
+            rules: {
+                name : {
+                    required: true,
+                },
+
+                mobile_number : {
+                    required: true,
+                },
+                subject : {
+                    required: true,
+                },
+                message : {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    validate_email: true,
+                    remote: {
+                        url: "{{ url('uniqueemail') }}",
+                        type: "GET",
+                        data: {
+                            action: function() {
+                                return "1";
+                            },
+                        }
+                    }
+                },
+
+            },
+            messages: {
+                name: {
+                    required:"Please enter name",
+                },
+                mobile_number : {
+                    required: "Please enter mobile number",
+
+                },
+                email: {
+                    required: "Please enter email address",
+                    validate_email: "Please enter a valid email address",
+                    remote: "Email id already registred",
+                },
+                subject: {
+                    required:"Please enter subject",
+                },
+                message: {
+                    required:"Please enter message",
+                },
+
+            },
+            submitHandler: function(form) {
+                form.submit();
+            },
+        });
+
+    </script>
 @endsection

@@ -15,7 +15,9 @@
                     <h6 class="text-overflow m-0">Welcome !</h6>
                 </div>
                 <div class="dropdown-divider"></div>
+
                 @if (Auth::user()->type == App\Enums\UserType::USER)
+
                     <a class="dropdown-item notify-item" href="{{ route('user.logout') }}">
                         <i class="mdi mdi-logout-variant"></i>{{ __('Logout') }}
                     </a>
@@ -29,6 +31,7 @@
                         @csrf
                     </form>
                 @endif
+
             </div>
         </li>
     </ul>

@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'GDPR Terms and Conditions')
 @section('content')
 <section class="section policies-class">
         <div class="container">
@@ -141,5 +142,5 @@
         </div>
     </section>
     <!-- footer & cta start -->
-    
+
 @endsection

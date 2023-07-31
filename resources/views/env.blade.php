@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Environmental and Social Responsibilities Policy')
 @section('content')
    <section class="section policies-class">
         <div class="container">
@@ -128,5 +129,5 @@
         </div>
     </section>
     <!-- footer & cta start -->
-    
+
 @endsection

@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Patient Privacy Policy')
 @section('content')
  <section class="section policies-class">
         <div class="container">
@@ -9,7 +10,7 @@
                     <p class="text-muted text-line">Effective Date: 10 July 2023
 
                         At Udenz Hello, we are dedicated to protecting the privacy and confidentiality of patient information. This Patient Privacy Policy outlines how we collect, use, and safeguard patient data when using the Udenz Hello website and its services (collectively referred to as the "Platform").
-                        
+
                     </p>
                     <div class="mt-3">
                         <p class="text-muted mt-3 mb-2 text-line">1. Collection and Use of Patient Information
@@ -40,7 +41,7 @@
                         <p class="text-muted mt-1 mb-2 text-line text-padding">
                             We take the security of patient information seriously and employ appropriate technical and organizational measures to protect it from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.
                         </p>
-                        
+
                     </div>
                     <div class="mt-3">
                         <p class="text-muted mt-3 mb-2 text-line">4. Data Retention
@@ -84,10 +85,10 @@
                         <p class="text-muted mt-1 mb-2 text-line">
                             If you have any questions or concerns regarding this Patient Privacy Policy or the use of your patient information, please contact us at support@udenz.ae.
 
-                            
-                            
-                            
-                            
+
+
+
+
                         </p>
                     </div>
                     <p class="text-muted mt-3 mb-2 text-line">
@@ -114,5 +115,5 @@
         </div>
     </section>
     <!-- footer & cta start -->
-    
+
 @endsection

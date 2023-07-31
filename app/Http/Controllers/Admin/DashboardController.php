@@ -19,7 +19,7 @@ class DashboardController extends Controller
                 return redirect()->route('user.chat.index');
             }
         } else {
-            return redirect()->route('login');
+            return view('home');
         }
     }
 }

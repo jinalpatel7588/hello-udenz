@@ -150,7 +150,7 @@ class ChatController extends Controller
             if ($response->status == StatusEnum::API_ERROR_STATUS) {
                 return redirect()->back()->with('error', $response->message);
             } else {
-                return redirect()->route('home');   
+                return redirect()->route('home');
             }
         } else {
             return view('auth.user-register', compact('link'));

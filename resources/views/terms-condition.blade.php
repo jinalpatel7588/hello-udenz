@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Terms & Conditions')
 @section('content')
    <section class="section policies-class">
         <div class="container">
@@ -163,5 +164,5 @@
 
     </section>
     <!-- footer & cta start -->
-    
+
 @endsection

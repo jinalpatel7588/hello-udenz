@@ -5,7 +5,7 @@
                   <div class="footer-flex">
                       <div class="footer-logo mb-4">
                           <a href="#">
-                              <img src="images/logos-white.png" class="footer-logo-set" alt="" />
+                              <img src="{{ asset('new_front_assets/images/logos-white.png') }}" class="footer-logo-set" alt="" />
                           </a>
                       </div>
                       <ul class="list-inline ">
@@ -93,6 +93,7 @@
                   </div>
                   <form method="POST" action="{{ route('login') }}" id="validation-form100">
                       @csrf
+                      <input type="hidden" name="type" value="{{ App\Enums\UserType::USER }}">
                       <div class="mb-3">
                           <label for="emailAddress" class="form-label">Email Address</label>
                           <input type="email" name="email" class="form-control" id="emailAddress"
@@ -134,139 +135,265 @@
       <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
               <div class="modal-body p-4">
-                  <div class="text-center mb-4">
-                      <h4 class="">Register</h4>
-                  </div>
-                  <div class="mb-3">
-                      <label for="firstName" class="form-label">Name</label>
+                  <form id="form" action="{{ route('user.register') }}" method="POST">
+                      @csrf
+                      <div class="text-center mb-4">
+                          <h4 class="">Register</h4>
+                      </div>
+                      <input type="hidden" name="type" value="{{ App\Enums\UserType::USER }}">
+                      <div class="mb-3">
+                          <label for="firstName" class="form-label">Name</label>
 
-                      <input type="text" class="form-control" id="firstName" placeholder="Enter Name" />
+                          <input type="text" name="name" class="form-control" id="firstName"
+                              placeholder="Enter Name" />
 
+                      </div>
+                      <div class="mb-3">
+                          <label for="lasttName" class="form-label">Email Address</label>
+                          <input type="text" name="email" class="form-control" id="lasttName"
+                              placeholder="Enter Email Address" />
+                      </div>
+                      <div class="mb-3">
+                          <label for="emailAddress1" class="form-label">Mobile Number</label>
+                          <input type="tel" onkeypress="return /[0-9]/i.test(event.key)" name="mobile_number"
+                              class="form-control" id="emailAddress1" placeholder="Enter Mobile Number" maxlength="10" />
+                      </div>
+                      <div class="mb-2">
 
-                  </div>
-                  <div class="mb-3">
-                      <label for="lasttName" class="form-label">Email Address</label>
-                      <input type="text" class="form-control" id="lasttName" placeholder="Enter Email Address" />
-                  </div>
-                  <div class="mb-3">
-                      <label for="emailAddress1" class="form-label">Mobile Number</label>
-                      <input type="email" class="form-control" id="emailAddress1"
-                          placeholder="Enter Mobile Number" />
-                  </div>
-                  <div class="mb-2">
-
-                      <label for="inputPasseord2" class="form-label">Password</label>
-                      <div class="position-set">
-                          <input type="password" class="form-control input-password" id="inputPasseord2"
-                              placeholder="Enter Password" />
-                          <div class="icon-position">
-                              <span class="toggle-password mdi mdi-eye-off-outline"></span>
+                          <label for="inputPasseord2" class="form-label">Password</label>
+                          <div class="position-set">
+                              <input type="password" name="password" class="form-control input-password"
+                                  id="password" placeholder="Enter Password" />
+                              <div class="icon-position">
+                                  <span class="toggle-password mdi mdi-eye-off-outline"></span>
+                              </div>
                           </div>
                       </div>
-                  </div>
-                  <div class="mb-2">
-                      <label for="inputPasseord2" class="form-label">Confirm Password</label>
-                      <div class="position-set">
-                          <input type="password" class="form-control input-password" id="inputPasseord2"
-                              placeholder="Enter Confirm Password" />
-                          <div class="icon-position">
-                              <span class="toggle-password mdi mdi-eye-off-outline"></span>
-                          </div>
+                      <div class="mb-2">
+                          <label for="inputPasseord2" class="form-label">Re-enter Password </label>
+                          <div class="position-set">
+                              <input type="password" name="password_confirmation" class="form-control input-password"
+                                  id="inputPasseord2" placeholder="Enter Re-enter Password" />
+                              <div class="icon-position">
+                                  <span class="toggle-password mdi mdi-eye-off-outline"></span>
+                              </div>
 
+                          </div>
+                          <div class="form-check mb-4 pb-2">
+                              <input class="form-check-input" type="checkbox" value=""
+                                  id="flexCheckDefault1" />
+                              <label class="form-check-label" for="flexCheckDefault1"> I agree to the <a
+                                      href="{{ route('terms.condition') }}">Terms of Service</a> and <a
+                                      href="{{ route('privacy') }}">Privacy Policy</a> </label>
+                          </div>
+                          <button type="submit" class="btn btn-gradient-primary w-100"
+                             >Register</button>
                       </div>
-                      <div class="form-check mb-4 pb-2">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
-                          <label class="form-check-label" for="flexCheckDefault1"> I agree to the <a
-                                  href="terms-condition.html">Terms of Service</a> and <a
-                                  href="privacy-policy.html">Privacy Policy</a> </label>
-                      </div>
-                      <a href="javascript:void(0);" class="btn btn-gradient-primary w-100"
-                          data-bs-dismiss="modal">Register</a>
-                  </div>
+                  </form>
               </div>
           </div>
       </div>
+  </div>
 
-      <!-- javascript -->
-      <script src="{{ asset('new_front_assets/js/jquery.js') }}"></script>
-      <script src="{{ asset('new_front_assets/js/bootstrap.bundle.min.js') }}"></script>
-      <!-- counter -->
-      <script src="{{ asset('new_front_assets/js/counter.init.js') }}"></script>
-      <!-- swiper -->
-      <script src="{{ asset('new_front_assets/js/swiper-bundle.min.js') }}"></script>
-      <script src="{{ asset('new_front_assets/js/swiper.js') }}"></script>
-      <script src="{{ asset('new_front_assets/js/app.js') }}"></script>
-      <!-- <script>
-          $(document).ready(function() {
-              // alert('hiiiii');
-              $('.email-alert-btn').click(function() {
-                  $('.email-alert').addClass('hide')
-              })
-              $("#submit").click(function() {
-                  $(".alert-success").slideToggle("slow").delay(2000).slideToggle("slow");
-              });
-          });
-      </script> -->
-      <script>
-          $(".toggle-password").click(function() {
-              $(this).toggleClass("mdi-eye-outline");
-              input = $(this).parent().find("input");
-              if ($(".input-password").attr("type") == "password") {
-                  $(".input-password").attr("type", "text");
-              } else {
-                  $(".input-password").attr("type", "password");
-              }
-          });
-
-          function isNumber(evt) {
-              evt = (evt) ? evt : window.event;
-              var charCode = (evt.which) ? evt.which : evt.keyCode;
-              if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                  return false;
-              }
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+  <script>
+      jQuery.validator.addMethod("validate_email", function(value, element) {
+          if (/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
               return true;
+          } else {
+              return false;
           }
-      </script>
-      <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-      <script>
-          $("document").ready(function() {
-              setTimeout(function() {
-                  $("#error").remove();
-              }, 5000); // 5 secs
-
-          });
-      </script>
-      <script>
-          $(document).ready(function() {
-              $('#validation-form100').validate({
-                  debug: false,
-                  event: 'blur',
-                  ignore: [],
-
-                  rules: {
-
-                      email: {
-                          required: true,
-                      },
-                      password: {
-                          required: true,
+      }, "Please enter a valid Email.");
+      var value = $("#password").val();
+      $.validator.addMethod("checklower", function(value) {
+          return /[a-z]/.test(value);
+      });
+      $.validator.addMethod("checkupper", function(value) {
+          return /[A-Z]/.test(value);
+      });
+      $.validator.addMethod("checkdigit", function(value) {
+          return /[0-9]/.test(value);
+      });
+      $.validator.addMethod("pwcheck", function(value) {
+          return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) && /[a-z]/.test(value) && /\d/.test(value) &&
+              /[A-Z]/.test(value);
+      });
+      jQuery('#form').validate({
+          rules: {
+              name: "required",
+              emirate_id: {
+                  required: true,
+                  minlength: 18,
+                  maxlength: 18,
+              },
+              mobile_number : {
+                  required: true,
+              },
+              email: {
+                  required: true,
+                  validate_email: true,
+                  remote: {
+                      url: "{{ url('uniqueemail') }}",
+                      type: "GET",
+                      data: {
+                          action: function() {
+                              return "1";
+                          },
                       }
-
-                  },
-                  messages: {
-
-                      email: {
-                          required: "Please Enter Email",
-                      },
-                      password: {
-                          required: "Please Enter Password",
-                      }
-
                   }
-              });
+              },
+              password: {
+                  required: true,
+                  minlength: 6,
+                  maxlength: 30,
+                  required: true,
+                  //pwcheck: true,
+                  checklower: true,
+                  checkupper: true,
+                  checkdigit: true
+              },
+              password_confirmation: {
+                  required: true,
+                  minlength: 6,
+                  equalTo: "#password"
+              },
+          },
+          messages: {
+              name: "Please enter name",
+              mobile_number : {
+                  required: "Please enter mobile number",
+
+              },
+              email: {
+                  required: "Please enter email address",
+                  validate_email: "Please enter a valid email address",
+                  remote: "Email id already registred",
+              },
+              password: {
+                  required: "The password should have 6 characters with a combination of uppercase letters, lowercase letters, and numbers.",
+                  pwcheck: "Password is not strong enough",
+                  checklower: "The password should have 6 characters with a combination of uppercase letters, lowercase letters, and numbers.",
+                  checkupper: "The password should have 6 characters with a combination of uppercase letters, lowercase letters, and numbers.",
+                  checkdigit: "The password should have 6 characters with a combination of uppercase letters, lowercase letters, and numbers.",
+              },
+              password_confirmation: {
+                  required: "Please Re-enter Password",
+                  equalTo: "Passwords do not match",
+              },
+          },
+          submitHandler: function(form) {
+              form.submit();
+          },
+      });
+
+  </script>
+
+  <!-- javascript -->
+  <script src="{{ asset('new_front_assets/js/jquery.js') }}"></script>
+  <script src="{{ asset('new_front_assets/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- counter -->
+  <script src="{{ asset('new_front_assets/js/counter.init.js') }}"></script>
+  <!-- swiper -->
+  <script src="{{ asset('new_front_assets/js/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('new_front_assets/js/swiper.js') }}"></script>
+  <script src="{{ asset('new_front_assets/js/app.js') }}"></script>
+ <script>
+      $(document).ready(function() {
+
+    if (!getCookieConsent()) {
+        $('.cookie').removeClass('d-none');
+        $('#exampleModal').show();
+
+        var consent;
+        if (consent) {
+            // Set the cookie or perform any desired action
+            setCookieConsent(true);
+            console.log("Cookie consent granted.");
+        } else {
+            console.log("Cookie consent denied.");
+        }
+    }else{
+        $('.cookie').addClass('d-none');
+    }
+
+      });
+      function onSaveClick() {
+
+        setCookieConsent(true);
+        $('#exampleModal').hide();
+    }
+    function closeModal() {
+        $('#exampleModal').hide();
+    }
+    function getCookieConsent() {
+        return localStorage.getItem('cookieConsent') === 'true';
+    }
+    function setCookieConsent(consent) {
+
+        localStorage.setItem('cookieConsent', consent);
+    }
+  </script>
+  <script>
+      $(".toggle-password").click(function() {
+          $(this).toggleClass("mdi-eye-outline");
+          input = $(this).parent().find("input");
+          if ($(".input-password").attr("type") == "password") {
+              $(".input-password").attr("type", "text");
+          } else {
+              $(".input-password").attr("type", "password");
+          }
+      });
+
+      function isNumber(evt) {
+          evt = (evt) ? evt : window.event;
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+              return false;
+          }
+          return true;
+      }
+  </script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script>
+      $("document").ready(function() {
+          setTimeout(function() {
+              $("#error").remove();
+          }, 5000); // 5 secs
+
+      });
+  </script>
+  <script>
+      $(document).ready(function() {
+          $('#validation-form100').validate({
+              debug: false,
+              event: 'blur',
+              ignore: [],
+
+              rules: {
+
+                  email: {
+                      required: true,
+                  },
+                  password: {
+                      required: true,
+                  }
+
+              },
+              messages: {
+
+                  email: {
+                      required: "Please Enter Email",
+                  },
+                  password: {
+                      required: "Please Enter Password",
+                  }
+
+              }
           });
-      </script>
+      });
+  </script>
 
-      </body>
+  </body>
 
-      </html>
+  </html>

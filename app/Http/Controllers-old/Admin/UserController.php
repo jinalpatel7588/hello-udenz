@@ -92,7 +92,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->user_password = $request->password;
         $user->save();
-        return redirect()->route('admin.users.index')->with('success', 'User Updated');
+        return redirect()->route('Pindex')->with('success', 'User Updated');
     }
 
     /**

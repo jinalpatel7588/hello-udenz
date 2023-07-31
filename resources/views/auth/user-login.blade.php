@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-      <div class="cookie"
+      {{--  <div class="cookie"
         style=" bottom: 0;z-index: 1000;padding: 25px;
     background-color: black;position: fixed; width: 100%;" id="exampleModal">
         <div class="col-md-12" style=";bottom: 0px;z-index: 999;;width: 100%;">
@@ -118,13 +118,13 @@
                     style="color: #3b62ac;" href="{{ route('cookies.policy') }}">cookies policy</a></p>
             <button type="submit" style="background-color:#3b62ac" class="btn" onclick="onSaveClick()">Accept</button>
         </div>
-    </div>
-   
+    </div>  --}}
+
 @endsection
 @section('footer-link')
 @endsection
 @section('js')
-<script>
+{{--  <script>
     $(document).ready(function() {
         if (!getCookieConsent()) {
             $('.cookie').removeClass('d-none');
@@ -155,7 +155,7 @@
     function setCookieConsent(consent) {
         localStorage.setItem('cookieConsent', consent);
     }
-</script>
+</script>  --}}
     <script>
         $(document).ready(function() {
             $('#userLogin').validate({
