@@ -16,8 +16,7 @@
                 </div>
                 <div class="dropdown-divider"></div>
 
-                @if (Auth::user()->type == App\Enums\UserType::USER)
-
+                @if (isset(Auth::user()->type) && Auth::user()->type == App\Enums\UserType::USER)
                     <a class="dropdown-item notify-item" href="{{ route('user.logout') }}">
                         <i class="mdi mdi-logout-variant"></i>{{ __('Logout') }}
                     </a>
@@ -40,9 +39,9 @@
         <a href="{{ route('home') }}" class="logo text-center">
             <span class="logo-lg dash-logo">
                 <img src="{{ asset('new_assets/images/udenz-talks-white.png') }}" alt=""
-                style="
+                    style="
     width: 190px;
-" >
+">
             </span>
         </a>
     </div>

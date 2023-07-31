@@ -2,7 +2,7 @@
     <div class="slimscroll-menu">
         <div id="sidebar-menu">
             <ul class="metismenu" id="side-menu">
-                @if (Auth::user()->type == App\Enums\UserType::ADMIN)
+                @if (isset(Auth::user()->type) && Auth::user()->type == App\Enums\UserType::ADMIN)
                     <li @if (Route::currentRouteName() == 'home') class="mm-active" @endif>
                         <a href="{{ route('home') }}"
                             class="waves-effect waves-light @if (Route::currentRouteName() == 'home') active @endif">

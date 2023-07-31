@@ -8,14 +8,14 @@
 
         /* my css */
         /* .login-background {
-            background-image: url("{{ asset('new_assets/images/login-background.jpg') }}");
-            object-fit: cover;
-            width: 100%;
-        } */
+                background-image: url("{{ asset('new_assets/images/login-background.jpg') }}");
+                object-fit: cover;
+                width: 100%;
+            } */
 
         .logo-imag img {
-               height: 70px;
-                width: 337px;
+            height: 70px;
+            width: 337px;
 
         }
 
@@ -36,7 +36,8 @@
                                     <a href="" class="text-success">
                                         <span>
                                             @php $siteSetting = ""; @endphp
-                                            <img class="mt-3" @if ($siteSetting) @if ($siteSetting->logo) src="{{ asset('storage/' . $siteSetting->logo) }}" @else src="{{ asset('new_assets/images/logo.png') }}" @endif
+                                            <img class="mt-3"
+                                                @if ($siteSetting) @if ($siteSetting->logo) src="{{ asset('storage/' . $siteSetting->logo) }}" @else src="{{ asset('new_assets/images/logo.png') }}" @endif
                                             @else src="{{ asset('new_assets/images/logo-black.png') }}" @endif
                                             alt="logo" height="36"></span>
                                     </a>
@@ -62,6 +63,10 @@
                                             class="form-control @error('password') is-invalid @enderror" name="password"
                                             required placeholder="Password" maxlength="30">
                                     </div>
+                                    @if (Route::has('password.request'))
+                                        <a href="{{ route('password.request') }}" class="forgot-link">
+                                            Forgot password?</a>
+                                    @endif
                                     <input type="hidden" name="type" value="{{ App\Enums\UserType::ADMIN }}">
                                     <div class="form-group account-btn text-center mt-2">
                                         <div class="col-12">
