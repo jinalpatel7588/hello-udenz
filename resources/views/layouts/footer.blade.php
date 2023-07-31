@@ -5,7 +5,8 @@
                   <div class="footer-flex">
                       <div class="footer-logo mb-4">
                           <a href="#">
-                              <img src="{{ asset('new_front_assets/images/logos-white.png') }}" class="footer-logo-set" alt="" />
+                              <img src="{{ asset('new_front_assets/images/logos-white.png') }}" class="footer-logo-set"
+                                  alt="" />
                           </a>
                       </div>
                       <ul class="list-inline ">
@@ -15,7 +16,8 @@
                           </li>
                           <li class="list-inline-item">
                               <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FUdenzMENA"
-                                  class="footer-social-icon"><i class="mdi mdi-twitter"></i></a>
+                                  class="footer-social-icon"><img
+                                      src="{{ asset('new_front_assets/images/x-twitter.svg') }}"></a>
                           </li>
                           <li class="list-inline-item">
                               <a href="https://www.linkedin.com/company/udenzmena/" class="footer-social-icon"><i
@@ -156,7 +158,8 @@
                       <div class="mb-3">
                           <label for="emailAddress1" class="form-label">Mobile Number</label>
                           <input type="tel" onkeypress="return /[0-9]/i.test(event.key)" name="mobile_number"
-                              class="form-control" id="emailAddress1" placeholder="Enter Mobile Number" maxlength="10" />
+                              class="form-control" id="emailAddress1" placeholder="Enter Mobile Number"
+                              maxlength="10" />
                       </div>
                       <div class="mb-2">
 
@@ -172,10 +175,11 @@
                       <div class="mb-2">
                           <label for="inputPasseord2" class="form-label">Re-enter Password </label>
                           <div class="position-set">
-                              <input type="password" name="password_confirmation" class="form-control input-password"
-                                  id="inputPasseord2" placeholder="Enter Re-enter Password" />
+                              <input type="password" name="password_confirmation"
+                                  class="form-control input-password-1" id="inputPasseord2"
+                                  placeholder="Re-enter Password" />
                               <div class="icon-position">
-                                  <span class="toggle-password mdi mdi-eye-off-outline"></span>
+                                  <span class="toggle-password-2 mdi mdi-eye-off-outline"></span>
                               </div>
 
                           </div>
@@ -186,8 +190,7 @@
                                       href="{{ route('terms.condition') }}">Terms of Service</a> and <a
                                       href="{{ route('privacy') }}">Privacy Policy</a> </label>
                           </div>
-                          <button type="submit" class="btn btn-gradient-primary w-100"
-                             >Register</button>
+                          <button type="submit" class="btn btn-gradient-primary w-100">Register</button>
                       </div>
                   </form>
               </div>
@@ -227,7 +230,7 @@
                   minlength: 18,
                   maxlength: 18,
               },
-              mobile_number : {
+              mobile_number: {
                   required: true,
               },
               email: {
@@ -261,7 +264,7 @@
           },
           messages: {
               name: "Please enter name",
-              mobile_number : {
+              mobile_number: {
                   required: "Please enter mobile number",
 
               },
@@ -286,7 +289,6 @@
               form.submit();
           },
       });
-
   </script>
 
   <!-- javascript -->
@@ -298,41 +300,45 @@
   <script src="{{ asset('new_front_assets/js/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('new_front_assets/js/swiper.js') }}"></script>
   <script src="{{ asset('new_front_assets/js/app.js') }}"></script>
- <script>
+  <script>
       $(document).ready(function() {
 
-    if (!getCookieConsent()) {
-        $('.cookie').removeClass('d-none');
-        $('#exampleModal').show();
+          if (!getCookieConsent()) {
+              $('.cookie').removeClass('d-none');
+              $('#exampleModal').show();
 
-        var consent;
-        if (consent) {
-            // Set the cookie or perform any desired action
-            setCookieConsent(true);
-            console.log("Cookie consent granted.");
-        } else {
-            console.log("Cookie consent denied.");
-        }
-    }else{
-        $('.cookie').addClass('d-none');
-    }
+              var consent;
+              if (consent) {
+                  // Set the cookie or perform any desired action
+                  setCookieConsent(true);
+                  console.log("Cookie consent granted.");
+              } else {
+                  console.log("Cookie consent denied.");
+              }
+          } else {
+              $('.cookie').addClass('d-none');
+          }
 
       });
+
       function onSaveClick() {
 
-        setCookieConsent(true);
-        $('#exampleModal').hide();
-    }
-    function closeModal() {
-        $('#exampleModal').hide();
-    }
-    function getCookieConsent() {
-        return localStorage.getItem('cookieConsent') === 'true';
-    }
-    function setCookieConsent(consent) {
+          setCookieConsent(true);
+          $('#exampleModal').hide();
+      }
 
-        localStorage.setItem('cookieConsent', consent);
-    }
+      function closeModal() {
+          $('#exampleModal').hide();
+      }
+
+      function getCookieConsent() {
+          return localStorage.getItem('cookieConsent') === 'true';
+      }
+
+      function setCookieConsent(consent) {
+
+          localStorage.setItem('cookieConsent', consent);
+      }
   </script>
   <script>
       $(".toggle-password").click(function() {
@@ -344,6 +350,17 @@
               $(".input-password").attr("type", "password");
           }
       });
+
+      $(".toggle-password-2").click(function() {
+          $(this).toggleClass("mdi-eye-outline");
+          input = $(this).parent().find("input");
+          if ($(".input-password-1").attr("type") == "password") {
+              $(".input-password-1").attr("type", "text");
+          } else {
+              $(".input-password-1").attr("type", "password");
+          }
+      });
+
 
       function isNumber(evt) {
           evt = (evt) ? evt : window.event;

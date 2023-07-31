@@ -84,7 +84,7 @@ class ChatController extends Controller
             return response()->json(["status" => 400, "message" => $messages->message]);
         } else {
             $chatRoom = ChatRoom::find($request->roomId);
-            $chatAttachment = Message::where('chat_room_id', $request->roomId)->where('attachment','!=',null)->get();
+            $chatAttachment = Message::where('chat_room_id', $request->roomId)->where('attachment', '!=', null)->get();
             return view('pages.user.chat.chatdetails', compact('messages', 'chatAttachment', 'chatRoom'));
         }
     }
@@ -127,10 +127,8 @@ class ChatController extends Controller
                     $query->where('chat_room_id', $roomId);
                 })->select('socket_id')->whereNotNull('socket_id')->get();
                 $socketIdMembers = [];
-                if(count($chatRoomMembers) > 0)
-                {
-                    foreach($chatRoomMembers as $chatRoomMember)
-                    {
+                if (count($chatRoomMembers) > 0) {
+                    foreach ($chatRoomMembers as $chatRoomMember) {
                         $socketIdMembers[] = $chatRoomMember->socket_id;
                     }
                 }

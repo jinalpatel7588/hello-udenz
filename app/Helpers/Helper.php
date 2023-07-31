@@ -23,6 +23,8 @@ class Helper
 
     public static function getBaseUrl()
     {
-        return "https://hello.udenz.co/public/api/";
+        $appUrl = env('APP_URL');
+        $url = "$appUrl/api/";
+        return $url;
     }
 }

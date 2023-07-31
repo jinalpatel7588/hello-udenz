@@ -252,14 +252,14 @@
                                             </label>
                                             <input type="text" name="mobile_number"
                                                 onkeypress="return isNumber(event)" class="form-control" id="formPhone"
-                                                placeholder="Enter mobile number"  required maxlength="10" />
+                                                placeholder="Enter mobile number" required maxlength="10" />
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="formSubject" class="form-label">Subject</label>
                                             <input type="text" name="subject" class="form-control" id="formSubject"
-                                                placeholder="Enter subject"/>
+                                                placeholder="Enter subject" />
 
                                         </div>
                                     </div>
@@ -403,17 +403,17 @@ background-color: black;position: fixed; width: 100%;"
         $('#contactUs').validate({
             ignore: [],
             rules: {
-                name : {
+                name: {
                     required: true,
                 },
 
-                mobile_number : {
+                mobile_number: {
                     required: true,
                 },
-                subject : {
+                subject: {
                     required: true,
                 },
-                message : {
+                message: {
                     required: true,
                 },
                 email: {
@@ -433,9 +433,9 @@ background-color: black;position: fixed; width: 100%;"
             },
             messages: {
                 name: {
-                    required:"Please enter name",
+                    required: "Please enter name",
                 },
-                mobile_number : {
+                mobile_number: {
                     required: "Please enter mobile number",
 
                 },
@@ -445,10 +445,10 @@ background-color: black;position: fixed; width: 100%;"
                     remote: "Email id already registred",
                 },
                 subject: {
-                    required:"Please enter subject",
+                    required: "Please enter subject",
                 },
                 message: {
-                    required:"Please enter message",
+                    required: "Please enter message",
                 },
 
             },
@@ -456,6 +456,5 @@ background-color: black;position: fixed; width: 100%;"
                 form.submit();
             },
         });
-
     </script>
 @endsection
