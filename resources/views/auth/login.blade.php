@@ -55,7 +55,7 @@
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             value="{{ old('email') }}" required autocomplete="email" autofocus
                                             placeholder="Email" maxlength="60">
-                                            <label id="emailAddress-error" class="error" for="emailAddress" style="color: red;">Please Enter Email</label>
+                                            <label id="emailAddress-error" class="error" for="emailAddress" style="color: red; display: none">Please Enter Email</label>
                                     </div>
                                     <div class="form-group">
                                         <input id="password" type="password"

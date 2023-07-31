@@ -88,7 +88,7 @@
                             aria-haspopup="true" aria-expanded="false">
                             @if (Auth::user())
                                 @if(!empty(Auth::user()->photo))
-                                    <img class="nav-profile-img" src="{{ asset('storage/'.Auth::user()->photo) }}"  alt="your image" />
+                                    <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" />
                                 @else
                                     <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" />
                                 @endif
@@ -106,7 +106,7 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             @if (Auth::user())
                                                 @if(!empty(Auth::user()->photo))
-                                                    <img class="nav-profile-img" src="{{ asset('storage/'.Auth::user()->photo) }}"  alt="your image" />
+                                                    <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" />
                                                 @else
                                                     <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" />
                                                 @endif

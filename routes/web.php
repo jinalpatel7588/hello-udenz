@@ -65,7 +65,7 @@ Route::get('/cookies-policy',function(){
     })->name('cookies.policy');
 
 Auth::routes();
-// Route::middleware(['admin.type:' . UserType::ADMIN])->group(function () {
+Route::middleware(['admin.type:' . UserType::ADMIN])->group(function () {
 Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('users')->name('users.')->group(function () {
@@ -79,7 +79,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::patch('/{user}', [UserController::class, 'statusChange'])->name('status');
     });
 });
-// });
+});
 
 Route::prefix('user')->name('user.')->group(function () {
     // Route::middleware(['admin.type:' . UserType::USER])->group(function () {

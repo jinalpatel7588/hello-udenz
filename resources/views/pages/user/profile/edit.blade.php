@@ -84,7 +84,7 @@
                                 <div class="form-group">
                                     <input type="file" name="photo" id="photo" class="form-control @error('photo') is-invalid @enderror" accept="image/png, image/jpeg">
                                     @if(!empty($user->photo))
-                                    <img class="nav-profile-img mt-3" src="{{ asset('storage/'.Auth::user()->photo) }}"  alt="your image" style="height:100px; widows: 100px"/>
+                                    <img class="nav-profile-img mt-3" src="{{ asset(Auth::user()->photo) }}"  alt="your image" style="height:100px; widows: 100px"/>
                                     @endif
                                 </div>
 
