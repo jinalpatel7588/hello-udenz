@@ -106,6 +106,8 @@ Route::prefix('user')->name('user.')->group(function () {
 });
 Route::get('/uniqueemail', [LoginController::class, 'uniqueemail'])->name('uniqueemail');
 
+Route::get('/unique-email', [HomeController::class, 'uniqueEmail'])->name('unique.email');
+
 Route::post('/contact-us',[ContactUsController::class,'store'])->name('contact.store');
 
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('admin.contactUs');
