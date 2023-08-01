@@ -11,6 +11,11 @@
                     {{ session('success') }}
                 </div>
             @endif
+            @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="row" style="align-items: center;">
                 <div class="col-lg-6">
                     <h1 class="hero-title text-white fw-bold mb-4 display-5 head-font">Innovative Communication
@@ -292,7 +297,7 @@
                     <button type="submit" class="btn btn-apply email-alert-btn" id="submit">Apply Now</button>
 
                 </div>
-                <label id="exampleInputEmail1-error" class="error" for="exampleInputEmail1"></label>
+                {{-- <label id="exampleInputEmail1-error" class="error" for="exampleInputEmail1"></label> --}}
                 <div class="alert alert-success hide email-alert">User Created successfully</div>
             </form>
         </div>
@@ -328,7 +333,7 @@
                         required: true,
                         validate_email: true,
                         remote: {
-                            url: "{{ url('uniqueemail') }}",
+                            url: "{{ url('unique-email') }}",
                             type: "GET",
                             data: {
                                 action: function() {
@@ -345,9 +350,9 @@
                         remote: "Email id already registred",
                     },
                 },
-                submitHandler: function(form) {
-                    form.submit();
-                }
+                // submitHandler: function(form) {
+                //     form.submit();
+                // }
             });
         </script>
 
