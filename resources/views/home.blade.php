@@ -366,7 +366,7 @@ background-color: black;position: fixed; width: 100%;"
         <div class="col-md-12" style=";bottom: 0px;z-index: 999;;width: 100%;">
             <h4 style="color: white;">Cookie Policy </h4>
             <p style="color: white;"> Our website uses cookies to improve your experience. Learn more: <a
-                    style="color: #3b62ac;" href="{{ route('cookies.policy') }}">cookies policy</a></p>
+                    style="color: #3b62ac;" target="_blank" href="{{ route('cookies.policy') }}">cookies policy</a></p>
             <button type="submit" style="background-color:#3b62ac" class="btn"
                 onclick="onSaveClick()">Accept</button>
         </div>

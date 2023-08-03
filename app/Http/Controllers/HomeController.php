@@ -28,7 +28,8 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function ApplyWaitingList(Request $request){
+    public function ApplyWaitingList(Request $request)
+    {
         $waiting = new WaitingList();
 
         $waiting->waitingEmail = $request->waitingEmail;
@@ -38,13 +39,14 @@ class HomeController extends Controller
             'mail' => $waiting->waitingEmail,
         ];
         Mail::to($waiting->waitingEmail)->send(new WaitingMail($data));
-        return redirect()->back()->with('success',"Your email has been submitted successfully");
+        return redirect()->route('index')->with('success', "Your email has been submitted successfully");
     }
 
-    public function waitingList(Request $request){
+    public function waitingList(Request $request)
+    {
 
         $waitingList = WaitingList::paginate(25);
-        return view('pages.admin.waiting-list.index',compact('waitingList'));
+        return view('pages.admin.waiting-list.index', compact('waitingList'));
     }
 
     public function uniqueEmail(Request $request)
@@ -56,5 +58,4 @@ class HomeController extends Controller
             echo json_encode(true);
         }
     }
-
 }

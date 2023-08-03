@@ -15,9 +15,8 @@
                                       class="mdi mdi-facebook"></i></a>
                           </li>
                           <li class="list-inline-item">
-                              <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FUdenzMENA"
-                                  class="footer-social-icon"><img
-                                      src="{{ asset('new_front_assets/images/x-twitter.svg') }}"></a>
+                              <a href="https://twitter.com/UdenzMENA" class="footer-social-icon"><img
+                                      src="https://hello.udenz.co/new_front_assets/images/x-twitter.svg"></a>
                           </li>
                           <li class="list-inline-item">
                               <a href="https://www.linkedin.com/company/udenzmena/" class="footer-social-icon"><i
@@ -184,11 +183,11 @@
 
                           </div>
                           <div class="form-check mb-4 pb-2">
-                              <input class="form-check-input" type="checkbox" value=""
-                                  id="flexCheckDefault1" />
                               <label class="form-check-label" for="flexCheckDefault1"> I agree to the <a
                                       href="{{ route('terms.condition') }}">Terms of Service</a> and <a
-                                      href="{{ route('privacy') }}">Privacy Policy</a> </label>
+                                      href="{{ route('privacy') }}">Privacy Policy</a> </label><br>
+                              <input class="form-check-input" type="checkbox" id="flexCheckDefault1"
+                                  name="terms_and_condition" />
                           </div>
                           <button type="submit" class="btn btn-gradient-primary w-100">Register</button>
                       </div>
@@ -225,6 +224,7 @@
       jQuery('#form').validate({
           rules: {
               name: "required",
+              terms_and_condition: "required",
               emirate_id: {
                   required: true,
                   minlength: 18,
@@ -236,15 +236,15 @@
               email: {
                   required: true,
                   validate_email: true,
-                  remote: {
-                      url: "{{ url('uniqueemail') }}",
-                      type: "GET",
-                      data: {
-                          action: function() {
-                              return "1";
-                          },
-                      }
-                  }
+                  //   remote: {
+                  //       url: "{{ url('uniqueemail') }}",
+                  //       type: "GET",
+                  //       data: {
+                  //           action: function() {
+                  //               return "1";
+                  //           },
+                  //       }
+                  //   }
               },
               password: {
                   required: true,
@@ -266,7 +266,9 @@
               name: "Please enter name",
               mobile_number: {
                   required: "Please enter mobile number",
-
+              },
+              terms_and_condition: {
+                  required: "Please checked terms and condition first"
               },
               email: {
                   required: "Please enter email address",
@@ -286,6 +288,7 @@
               },
           },
           submitHandler: function(form) {
+              console.log("hello");
               form.submit();
           },
       });

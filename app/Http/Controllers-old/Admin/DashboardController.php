@@ -13,13 +13,17 @@ class DashboardController extends Controller
     {
         if (Auth::user()) {
             if (Auth::user()->type == UserType::ADMIN) {
-                $users = User::where('type',UserType::USER)->count();
-                return view('pages.admin.dashboard', compact( 'users',));
+                $users = User::where('type', UserType::USER)->count();
+                return view('pages.admin.dashboard', compact('users',));
             } else {
                 return redirect()->route('user.chat.index');
             }
         } else {
-            return redirect()->route('login');
+            return view('home');
         }
+    }
+    public function Home()
+    {
+        return view('home');
     }
 }
