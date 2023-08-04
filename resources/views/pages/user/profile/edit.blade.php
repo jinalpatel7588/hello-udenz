@@ -91,8 +91,8 @@
                                 {{--  <input type="hidden" name="type" value="{{ App\Enums\UserType::USER }}">  --}}
                                 <div class="form-group account-btn text-center mt-2">
                                     <div class="col-12">
-                                        <button class="btn width-md btn-bordered btn-danger waves-effect waves-light"
-                                            type="submit">Update</button>
+                                        <button class="btn width-md btn-bordered"
+                                            type="submit" style="background-color: black !important;">Update</button>
                                     </div>
                                 </div>
                             </form>
