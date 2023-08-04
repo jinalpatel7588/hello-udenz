@@ -294,7 +294,7 @@
                         <input type="email" name="waitingEmail" class="form-control form-control-submit"
                             id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email address">
                     </div>
-                    <button type="submit" class="btn btn-apply email-alert-btn" id="submit">Apply Now</button>
+                    <button type="submit" class="btn btn-apply email-alert-btn">Apply Now</button>
 
                 </div>
                 {{-- <label id="exampleInputEmail1-error" class="error" for="exampleInputEmail1"></label> --}}

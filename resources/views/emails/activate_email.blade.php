@@ -36,13 +36,13 @@
         Thank you once again for joining us on this journey of innovation and collaboration.
         We can't wait to see what incredible projects you'll create with Udenz Outbox!
         Best regards,</P>
+        <br>
+        <P>
+            <b>The Udenz Outbox Team</b>
+        </P>
     <br>
     <img src="https://hello.udenz.co/new_front_assets/images/waiting-email.png" alt=""
         class="img-fluid d-block mx-auto ms-lg-auto" />
-    <br>
-    <P>
-        <b>The Udenz Outbox Team</b>
-    </P>
 </body>
 
 </html>

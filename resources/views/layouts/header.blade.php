@@ -54,15 +54,43 @@
                         <a href="#contact" class="nav-link">Contact Us</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav navbar-center gap-3">
-                    <li class="nav-item">
-                        <button class="btn loginBtn"  data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="btn loginBtn" data-bs-toggle="modal"
-                        data-bs-target="#signupModal" data-bs-backdrop="static" data-bs-keyboard="false">Register</a>
-                    </li>
-                </ul>
+                @auth
+                    <ul class="navbar-nav navbar-center gap-3">
+                        <li class="nav-item">
+                            {{-- <a class="btn loginBtn" href="{{ route('user.logout') }}"></i>{{ __('Logout') }}</a> --}}
+                             <a class="nav-link" href="{{ route('user.chat.index') }}" role="button" id="profile-menu" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            @if (Auth::user())
+                                @if(!empty(Auth::user()->photo) && file_exists('public'.Auth::user()->photo))
+                                    <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" style="height: 35px; width: 35px; "/> {{ auth()->user()->name }}
+                                @else
+                                    <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" style="height: 35px; width: 35px; "/> {{ auth()->user()->name }}
+                                @endif
+                            @endif
+
+
+                            {{--  <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"
+                                alt="Profile Image">  --}}
+                        </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a>{{ auth()->user()->name }}</a>
+                        </li> --}}
+                    </ul>
+                @else
+                    <ul class="navbar-nav navbar-center gap-3">
+                        <li class="nav-item">
+                            {{-- <button class="btn loginBtn"  data-bs-toggle="modal" data-bs-target="#loginModal">Login</button> --}}
+                            <a href="{{ route('loginPage') }}" class="btn loginBtn">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            {{-- <a href="#" class="btn loginBtn" data-bs-toggle="modal"
+                        data-bs-target="#signupModal" data-bs-backdrop="static" data-bs-keyboard="false">Register</a> --}}
+                            <a href="{{ route('registerPage') }}" class="btn loginBtn" data-bs-backdrop="static"
+                                data-bs-keyboard="false">Register</a>
+                        </li>
+                    </ul>
+                @endauth
             </div>
         </div>
     </nav>

@@ -115,12 +115,12 @@ Route::get('/contact-us', [ContactUsController::class, 'index'])->name('admin.co
 Route::delete('/contact-us/{contact}', [ContactUsController::class, 'destroy'])->name('admin.contactUs.destroy');
 
 
-Route::get('/registerPage', function () {
-   return view('registerPage');
-});
-Route::get('/loginPage', function () {
+Route::get('/register', function () {
+   return view('registerPage') ;
+})->name('registerPage')->Middleware('guest');
+Route::get('/user/login', function () {
    return view('loginPage');
-});
+})->name('loginPage')->Middleware('guest');
 
 
 

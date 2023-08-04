@@ -108,7 +108,7 @@ class UserController extends Controller
 
     public function login($id)
     {
-
+dd('hi');
         $user = User::where('id', $id)->first();
         $customerInfo = array('email' => $user->email);
         if ($user != null) {
