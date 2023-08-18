@@ -39,7 +39,7 @@
                             <div class="text-center account-logo-box">
                                 <div class="mt-2 mb-2">
                                     <div class="edit-back-btn">
-                                        <h2>User Profile</h2>
+                                        <h2>Change Password</h2>
                                         <a href="{{ route('user.chat.index') }}" class="back-btn"><button
                                                 class="btn ">Back</button></a>
                                     </div>
@@ -60,58 +60,41 @@
                                         {{ session('error') }}
                                     </h6>
                                 @endif
-                                <form method="POST" action="{{ route('user.update', $user->id) }}" id="userProfile"
+                                <form method="POST" action="{{ route('user.update.password') }}" id="userProfile"
                                     enctype="multipart/form-data">
                                     @csrf
-                                    @method('PUT')
                                     {{--  <input type="hidden" name="link" value="{{ $link }}">  --}}
                                     <div class="form-group">
-                                        <input id="name" type="text"
-                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ $user->name }}" required autocomplete="name" autofocus
-                                            placeholder="Name" maxlength="60">
-                                    </div>
-                                    <div class="form-group">
-                                        <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ $user->email }}" required autocomplete="email" autofocus
-                                            placeholder="Email" maxlength="60">
-                                    </div>
-                                    <div class="form-group">
-                                        <input id="mobile_number" type="text"
-                                            onkeypress="return /[0-9]/i.test(event.key)" maxlength="10"
-                                            class="form-control @error('mobile_number') is-invalid @enderror"
-                                            name="mobile_number" value="{{ $user->mobile_number }}" required
-                                            autocomplete="email" autofocus placeholder="Mobile Number">
-                                        <span style="color: red" class="error"> @error('mobile_number')
-                                                Phone number is already registered
-                                            @enderror
-                                        </span>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom-file">
-                                            <label class="custom-file-label" for="customFileLang">Upload Photo</label>
-                                            <input type="file" class="custom-file-input" name="photo" id="photo" @error('photo') is-invalid @enderror" accept="image/png, image/jpeg">
-                                        </div>
-                                        @if (!empty($user->photo) && file_exists(Auth::user()->photo))
-                                        <img class="nav-profile-img mt-3" src="{{ asset(Auth::user()->photo) }}"
-                                            alt="your image" style="height:100px; widows: 100px" />
-                                    @endif
-                                    </div>
-                                    {{-- <input type="file" name="photo" id="photo"
-                                        class="form-control @error('photo') is-invalid @enderror"
-                                        accept="image/png, image/jpeg">
-                                    @if (!empty($user->photo) && file_exists(Auth::user()->photo))
-                                        <img class="nav-profile-img mt-3" src="{{ asset(Auth::user()->photo) }}"
-                                            alt="your image" style="height:100px; widows: 100px" />
-                                    @endif --}}
+                                <label for="current_password">{{ __('Current Password') }}</label>
+                                <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password" required>
 
+                                @error('current_password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                                    {{--  <input type="hidden" name="type" value="{{ App\Enums\UserType::USER }}">  --}}
+                            <div class="form-group">
+                                <label for="new_password">{{ __('New Password') }}</label>
+                                <input id="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" name="new_password" required>
+
+                                @error('new_password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="new_password_confirmation">{{ __('Confirm New Password') }}</label>
+                                <input id="new_password_confirmation" type="password" class="form-control" name="new_password_confirmation" required>
+                            </div>
+
                                     <div class="form-group account-btn text-center mt-2">
                                         <div class="col-12">
                                             <button class="btn width-md btn-bordered" type="submit"
-                                                style="background-color: black !important;">Update</button>
+                                                style="background-color: black !important;">{{ __('Change Password') }}</button>
                                         </div>
                                     </div>
                                 </form>

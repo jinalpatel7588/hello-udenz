@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Site Title -->
-    {{--  <title>Udenz Hello</title>  --}}
-    <title>@yield('title')</title>
+     <title>Udenz Hello</title> 
+    {{-- <title>@yield('title')</title> --}}
     <link rel="shortcut icon" href="{{ asset('new_front_assets/images/Udenz Hello icon.png') }}">
     <!-- Swiper js -->
     <link rel="stylesheet" href="{{ asset('new_front_assets/css/swiper-bundle.min.css') }}" type="text/css" />
@@ -61,7 +61,7 @@
                              <a class="nav-link" href="{{ route('user.chat.index') }}" role="button" id="profile-menu" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             @if (Auth::user())
-                                @if(!empty(Auth::user()->photo) && file_exists('public'.Auth::user()->photo))
+                                @if(!empty(Auth::user()->photo) && file_exists(Auth::user()->photo))
                                     <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" style="height: 35px; width: 35px; "/> {{ auth()->user()->name }}
                                 @else
                                     <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" style="height: 35px; width: 35px; "/> {{ auth()->user()->name }}

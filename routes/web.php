@@ -99,6 +99,8 @@ Route::prefix('user')->name('user.')->group(function () {
 
    Route::get('/edit/{user}', [ProfileController::class, 'edit'])->name('edit');
    Route::put('/update/{user}', [ProfileController::class, 'update'])->name('update');
+   Route::get('/change-pass/{user}', [ProfileController::class, 'ChangePass'])->name('ChangePass');
+   Route::post('/update/pass', [ProfileController::class, 'updatePass'])->name('update.password');
 
    Route::get('/logout', [LoginController::class, 'userLogout'])->name('logout');
    Route::post('/registeruser', [LoginController::class, 'register'])->name('register');

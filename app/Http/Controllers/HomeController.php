@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MyMail;
 use App\Mail\WaitingMail;
 use App\Models\WaitingList;
 use Illuminate\Http\Request;
@@ -31,14 +32,16 @@ class HomeController extends Controller
     public function ApplyWaitingList(Request $request)
     {
         $waiting = new WaitingList();
-
+        
         $waiting->waitingEmail = $request->waitingEmail;
+        $waiting->name = $request->name;
+        $waiting->number = $request->number;
 
         $waiting->save();
         $data = [
             'mail' => $waiting->waitingEmail,
         ];
-        Mail::to($waiting->waitingEmail)->send(new WaitingMail($data));
+        // Mail::to($waiting->waitingEmail)->send(new WaitingMail($data));
         return redirect()->route('index')->with('success', "Your email has been submitted successfully");
     }
 

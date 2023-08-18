@@ -29,8 +29,18 @@
                     <div class="modal-body p-4">
                         <div class="text-center mb-4">
                             <h4 class="mb-0">Welcome Back</h4>
-                            <p class="text-muted fs-15">Welcome back! Please enter your details.</p>
+                            <p class="text-muted fs-15">Please enter your details.</p>
                         </div>
+                         @if (session('success'))
+                                <div class="alert alert-success mb-3" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger mb-3" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                         <form method="POST" action="{{ route('login') }}" id="validation-form100">
                             @csrf
                             <input type="hidden" name="type" value="{{ App\Enums\UserType::USER }}">

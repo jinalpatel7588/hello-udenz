@@ -1757,20 +1757,6 @@ label.form-label {
     }
 }
 
-.background-banner {
-    background-image: url(../images/sub-png.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 419px;
-    position: relative;
-    padding: 40px 100px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-
-    /* background-size: 100%; */
-}
 /* @media (max-width: 499px) .background-banner {
     padding-top: 50%;
     background-size: 100%;
@@ -2098,5 +2084,87 @@ body {
     .background-banner {
         height: 200px;
         padding: 0px 20px;
+    }
+}
+
+.new-email-btn{
+    background-color: #ec9133 !important;
+    height: 41px;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+    color: #fff !important;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    font-weight: 500;
+    font-size: 17px;
+    margin-bottom: 50px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-banner {
+    background-image: url(../images/sub-png.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-size: contain; */
+    /* height: 479px; */
+    height: 24vw;
+    position: relative;
+    padding: 40px 100px;
+    display: flex;
+    /* justify-content: flex-end; */
+    justify-content: center;
+    align-items: flex-end;
+
+    background-size: 100%;
+}
+
+@media (min-width: 1999.99px) {
+    .background-banner {
+            background-image: url(../images/sub-png.png);
+            background-position: top right;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* background-size: contain; */
+            height: 489px;
+            position: relative;
+            padding: 100px 40px 0px;
+            display: flex;
+            /* justify-content: flex-end; */
+            justify-content: center;
+            align-items: flex-end;
+    
+            /* background-size: 100%; */
+        }
+}
+
+@media (max-width: 1199.99px) {
+.new-email-btn{
+    margin-bottom: 0 !important; 
+}
+}
+
+@media (max-width: 767.99px) {
+    .new-email-btn {
+        height: 31px;
+    }
+
+        .background-banner{
+            padding-bottom: 20px;
+        }
+}
+@media (max-width: 399.99px) {
+    .new-email-btn {
+        height: auto !important;
+        padding: 1px 11px 2px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .background-banner {
+        padding-bottom: 20px;
+        height: 28vw !important;
     }
 }

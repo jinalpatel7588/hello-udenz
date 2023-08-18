@@ -30,6 +30,16 @@
                             <div class="text-center mb-4">
                                 <h4 class="">Register</h4>
                             </div>
+                             @if (session('success'))
+                                <div class="alert alert-success mb-3" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger mb-3" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <input type="hidden" name="type" value="{{ App\Enums\UserType::USER }}">
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">Name</label>
@@ -71,16 +81,17 @@
                                     </div>
 
                                 </div>
-                                <div class="form-check  pb-2">
-                                    <input class="form-check-input" type="checkbox" id="flexCheckDefault1"
-                                        name="terms_and_condition" />
-                                    <label class="form-check-label" for="flexCheckDefault1"> I agree to the <a
-                                            href="{{ route('terms.condition') }}">Terms of Service</a> and <a
-                                            href="{{ route('privacy') }}">Privacy Policy</a> </label>
-                                        </div>
-                                        <div class="mb-4">
-                                        <label id="terms_and_condition-error" class="error" for="terms_and_condition" style="display: none !important">Please checked terms and condition first</label>
-                                </div>
+                                {{-- <div class="form-check"> --}}
+                                    {{-- <input class="form-check-input" type="checkbox" id="flexCheckDefault1"
+                                        name="terms_and_condition" /> --}}
+                                    <label class="form-check-label" for="flexCheckDefault1"> By registering, you agree to our <a
+                                            href="{{ route('terms.condition') }}">Terms, Privacy Policy</a> and <a
+                                            href="{{ route('privacy') }}">Cookies Policy</a> </label>
+                                {{-- </div> --}}
+                                {{-- <div class="mb-4">
+                                    <label id="terms_and_condition-error" class="error" for="terms_and_condition"
+                                        style="display: none !important">Please checked terms and condition first</label>
+                                </div> --}}
                                 {{-- <div>
                                     <input type="checkbox" class="form-check-input" id="flexCheckDefault1" name="terms_and_condition">
                                     <label for="flexCheckDefault1">I agree to the <a
@@ -168,13 +179,13 @@
                 mobile_number: {
                     required: "Please enter mobile number",
                 },
-                terms_and_condition: {
-                    required: "Please checked terms and condition first"
-                },
+                // terms_and_condition: {
+                //     required: "Please checked terms and condition first"
+                // },
                 email: {
                     required: "Please enter email address",
                     validate_email: "Please enter a valid email address",
-                    remote: "Email id already registred",
+                    remote: "Email ID already registered",
                 },
                 password: {
                     required: "The password should have 6 characters with a combination of uppercase letters, lowercase letters, and numbers.",

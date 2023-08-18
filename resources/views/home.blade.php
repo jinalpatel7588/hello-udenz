@@ -287,19 +287,58 @@
     <!-- contact end -->
     <section class="background-banner msg">
         <div class="form-position">
-            <form method="post" action="{{ route('apply-waiting-list') }}" id="frm">
-                @csrf
-                <div class="form-flex">
-                    <div>
+
+            <div class="form-flex">
+                {{-- <div>
                         <input type="email" name="waitingEmail" class="form-control form-control-submit"
                             id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email address">
-                    </div>
-                    <button type="submit" class="btn btn-apply email-alert-btn">Apply Now</button>
+                    </div> --}}
+                {{-- <button type="submit" class="btn btn-apply email-alert-btn">Apply Now</button> --}}
+                <button type="button" class="btn new-email-btn" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Apply Now</button>
 
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Apply Now</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body px-sm-5 pt-0 pb-4">
+                                <form method="post" action="{{ route('apply-waiting-list') }}" id="frm">
+                                    @csrf
+                                    <div class="mb-sm-3">
+                                        <label  class="form-label">Name</label>
+                                        <input type="text" class="form-control" maxlength="30" name="name"
+                                            placeholder="Enter your name"
+                                            aria-describedby="emailHelp"
+                                            onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode <= 32 && event.charCode >= 32) ">
+                                    </div>
+                                    <div class="mb-sm-3">
+                                        <label  class="form-label">Email</label>
+                                        <input type="text" class="form-control" name="waitingEmail" maxlength="50"
+                                            placeholder="Enter your email" >
+                                    </div>
+                                    <div class="mb-sm-3 mb-2">
+                                        <label class="form-label">Mobile Number</label>
+                                        <input type="text" class="form-control" name="number"
+                                            placeholder="Enter your mobile number"  maxlength="20"
+                                            onkeypress="return /[0-9]/i.test(event.key)">
+                                    </div>
+                                    <button type="submit" class="btn new-email-btn" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">Apply Now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {{-- <label id="exampleInputEmail1-error" class="error" for="exampleInputEmail1"></label> --}}
-                <div class="alert alert-success hide email-alert">User Created successfully</div>
-            </form>
+
+            </div>
+            {{-- <label id="exampleInputEmail1-error" class="error" for="exampleInputEmail1"></label> --}}
+            <div class="alert alert-success hide email-alert">User Created successfully</div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -342,12 +381,20 @@
                             }
                         }
                     },
+                    name: {required: true,},
+                    number: {required: true,},
                 },
                 messages: {
                     waitingEmail: {
                         required: "Please enter email address",
                         validate_email: "Please enter a valid email address",
-                        remote: "Email id already registred",
+                        remote: "Email ID already registered",
+                    },
+                    number: {
+                        required: "Please enter mobile number",
+                    },
+                    name: {
+                        required: "Please enter name",
                     },
                 },
                 // submitHandler: function(form) {
@@ -447,7 +494,7 @@ background-color: black;position: fixed; width: 100%;"
                 email: {
                     required: "Please enter email address",
                     validate_email: "Please enter a valid email address",
-                    remote: "Email id already registred",
+                    remote: "Email ID already registered",
                 },
                 subject: {
                     required: "Please enter subject",
