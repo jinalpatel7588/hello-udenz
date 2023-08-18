@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ asset('new_assets/images/small-black-logo.png') }}" type="image/x-icon" />
-    <title>Udenz Talks</title>
+    <title>Udenz Hello</title>
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="http://chat-room.udenz.co/public/user/chat">
@@ -87,7 +87,7 @@
                         <a class="profile-circle" href="#" role="button" id="profile-menu" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             @if (Auth::user())
-                                @if(!empty(Auth::user()->photo) && file_exists('public'.Auth::user()->photo))
+                                @if(!empty(Auth::user()->photo) && file_exists(Auth::user()->photo))
                                     <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" />
                                 @else
                                     <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" />
@@ -105,7 +105,7 @@
                                         <a class="profile-circle" href="#" role="button" id="profile-menu"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             @if (Auth::user())
-                                                @if(!empty(Auth::user()->photo) && file_exists('public'.Auth::user()->photo))
+                                                @if(!empty(Auth::user()->photo) && file_exists(Auth::user()->photo))
                                                     <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" />
                                                 @else
                                                     <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" />
@@ -121,6 +121,11 @@
                                     <div class="profile-body">
                                         <a class="paragraph-regular" href="{{ route('user.edit',Auth::user()->id) }}">
                                             <i class="mdi mdi-logout-variant"></i>{{ __('Profile') }}
+                                        </a>
+                                    </div>
+                                    <div class="profile-body">
+                                        <a class="paragraph-regular" href="{{ route('user.ChangePass',Auth::user()->id) }}">
+                                            <i class="mdi mdi-logout-variant"></i>{{ __('Change Password') }}
                                         </a>
                                     </div>
                                     <div class="profile-body">

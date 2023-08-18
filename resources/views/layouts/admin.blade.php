@@ -8,7 +8,7 @@
     <meta name="Description" content="">
     <meta name="Author" content="">
     <link rel="icon" href="{{ asset('new_assets/images/small-black-logo.png') }}" type="image/x-icon" />
-    <title>Udenz Talks</title>
+    <title>Udenz Hello</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <input type="hidden" id="csrf-token" value="{{ csrf_token() }}">
     <meta name="Keywords" content="" />

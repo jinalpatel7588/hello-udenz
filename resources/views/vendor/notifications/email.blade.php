@@ -44,7 +44,7 @@
 {{ $salutation }}
 @else
 @lang('Regards'),<br>
-Udenz Talks Team
+Udenz Hello
 @endif
 
 {{-- Subcopy --}}

@@ -6,12 +6,14 @@ use App\Enums\StatusEnum;
 use App\Enums\UserType;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Mail\MyMail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class LoginController extends Controller
 {
@@ -62,7 +64,7 @@ class LoginController extends Controller
         $user['type'] = UserType::USER;
         $user['mobile_number'] = $request->mobile_number;
         User::create($user);
-
+        Mail::to($request->email)->send(new MyMail());
         $this->validate($request, [
             'email' => 'required',
             'password' => 'required',

@@ -37,6 +37,8 @@
                         <thead>
                             <tr>
                                 <th>S.No</th>
+                                <th>Name</th>
+                                <th>Mobile Number</th>
                                 <th>Email</th>
                             </tr>
                         </thead>
@@ -46,6 +48,8 @@
                                 @foreach ($waitingList as $waitingLists)
                                     <tr>
                                         <td>{{ $i }}</td>
+                                        <td>{{ $waitingLists->name }}</td>
+                                        <td>{{ $waitingLists->number }}</td>
                                         <td>{{ $waitingLists->waitingEmail }}</td>
                                     </tr>
                                     <?php $i++; ?>
