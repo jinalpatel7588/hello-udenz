@@ -8,7 +8,9 @@
                 <h6 class="tag-text">{{ ucfirst($chat->name) }}</h6>
                 <p class="tag-text">
                     @if (count($chat->latestMessages) > 0)
+                    
                         @php
+                    //    dd($chat->latestMessages)
                             $ext = pathinfo(storage_path('storage/' . $chat->latestMessages->first()->attachment), PATHINFO_EXTENSION);
                         @endphp
                         {{ $chat->latestMessages->first()->messages ? decrypt($chat->latestMessages->first()->messages) : '' }}
@@ -20,6 +22,8 @@
                         @if ($ext == 'jpg' || $ext == 'png' || $ext == 'png' || $ext == 'webp')
                             <i class="fa fa-file" aria-hidden="true" style="font-size:14px"></i>
                             Image
+                            
+                            {{-- {{ $chat->latestMessages->first()->attachment }} --}}
                         @endif
                     @endif
                 </p>

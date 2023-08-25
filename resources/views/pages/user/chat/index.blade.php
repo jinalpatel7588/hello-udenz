@@ -430,7 +430,7 @@
                         });
                         {{--  $("#message").val('');
                         $('#message').focus();  --}}
-                        $("#message_details_id").html(response);
+                        $("#message_details_id").html(response.message);
                         $(".images_loader").html(`<svg width="33" height="33" viewBox="0 0 33 33" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path

@@ -84,9 +84,7 @@
                                 {{-- <div class="form-check"> --}}
                                     {{-- <input class="form-check-input" type="checkbox" id="flexCheckDefault1"
                                         name="terms_and_condition" /> --}}
-                                    <label class="form-check-label" for="flexCheckDefault1"> By registering, you agree to our <a
-                                            href="{{ route('terms.condition') }}">Terms, Privacy Policy</a> and <a
-                                            href="{{ route('privacy') }}">Cookies Policy</a> </label>
+                                    <label class="form-check-label" for="flexCheckDefault1"> By registering, you agree to our <a href="{{ route('terms.condition') }}">Terms,</a> <a href="{{ route('privacy') }}"> Privacy Policy</a> and <a href="{{ route('cookies.policy') }}">Cookies Policy</a> </label>
                                 {{-- </div> --}}
                                 {{-- <div class="mb-4">
                                     <label id="terms_and_condition-error" class="error" for="terms_and_condition"

@@ -42,16 +42,16 @@
                         <a href="{{ route('index') }}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about-us" class="nav-link">About Us</a>
+                        <a href="{{ url('') . "/home#about-us" }}" class="nav-link">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#how-work" class="nav-link">How it Works</a>
+                        <a href="{{ url('') . "/home#how-work" }}" class="nav-link">How it Works</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#features" class="nav-link">Features</a>
+                        <a href="{{ url('') . "/home#features" }}" class="nav-link">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact Us</a>
+                        <a href="{{ url('') . "/home#contact" }}" class="nav-link">Contact Us</a>
                     </li>
                 </ul>
                 @auth
