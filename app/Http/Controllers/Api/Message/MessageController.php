@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Message;
 
+use App\Enums\UserType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,6 +12,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Api\Response\ResponseController;
 use App\Models\ChatRoom;
+use App\Models\ChatRoomMember;
+use App\Models\MessageNotifications;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 class MessageController extends ResponseController
@@ -31,6 +35,17 @@ class MessageController extends ResponseController
             $validator = Validator::make($request->all(), $statusBrand, $messages);
             if ($validator->fails()) {
                 return $this->sendError($validator->errors()->first());
+            }
+            $users = ChatRoomMember::where('chat_room_id', $request->chat_room_id)->get('user_id');
+
+            foreach($users as $user){
+            if($request->sender_id != $user->user_id){
+            $Notification = new MessageNotifications();
+            $Notification->chat_room_id =  $request->chat_room_id;
+            $Notification->user_id = $user->user_id;
+            $Notification->sender_id = $request->sender_id;
+            $Notification->save();
+                }
             }
 
             $messageData = new Message;

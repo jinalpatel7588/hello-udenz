@@ -10,7 +10,6 @@
                     @if (count($chat->latestMessages) > 0)
                     
                         @php
-                    //    dd($chat->latestMessages)
                             $ext = pathinfo(storage_path('storage/' . $chat->latestMessages->first()->attachment), PATHINFO_EXTENSION);
                         @endphp
                         {{ $chat->latestMessages->first()->messages ? decrypt($chat->latestMessages->first()->messages) : '' }}

@@ -13,6 +13,11 @@
             font-size: 14px;
             font-weight: 500;
         }
+
+        .show-more,
+        .Show-less {
+            color: blue;
+        }
     </style>
 @endsection
 @section('breadcrumb')
@@ -42,6 +47,7 @@
                                 <th>Mobile Number</th>
                                 <th>Subject</th>
                                 <th>Message</th>
+                                {{-- <th>Status</th>  --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -55,8 +61,16 @@
                                         <td>{{ $contacts->email }}</td>
                                         <td>{{ $contacts->mobile_number }}</td>
                                         <td>{{ $contacts->subject }}</td>
-                                        <td>{{ $contacts->message }}</td>
+                                        <td class="limit-text" style="word-break: break-all;">{{ $contacts->message }}</td>
                                         <td>
+                                            @if ($contacts->status == '1')
+                                                <a href="{{ route('admin.contactUs.status', $contacts->id) }}"class="btn btn-sm btn-success waves-effect waves-light">Read</a>
+                                            @else
+                                                <a href="{{ route('admin.contactUs.status', $contacts->id) }}"
+                                                    class="btn btn-sm btn-danger waves-effect waves-light">Un read</a>
+                                            @endif
+                                        </td>
+                                        {{-- <td>
                                             <div class="d-flex">
 
                                                 <button type="button" data-toggle="tooltip" data-placement="top"
@@ -65,7 +79,7 @@
                                                     onclick="sweetAlertAjax('delete','{{ route('admin.contactUs.destroy', $contacts->id) }}', 'Are you sure you want to delete?')">
                                                     <i class="fas fa-trash-alt"></i></button>
                                             </div>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                     <?php $i++; ?>
                                 @endforeach
@@ -83,4 +97,34 @@
     </div>
 @endsection
 @section('js')
+    <script>
+        $(document).ready(function() {
+            // Get the character limit and store it in a variable
+            var charLimit = 100; // Adjust this value as needed
+
+            // Loop through each td element with the class 'limit-text'
+            $('td.limit-text').each(function() {
+                var content = $(this).text();
+
+                if (content.length > charLimit) {
+                    var visibleText = content.substring(0, charLimit);
+                    var hiddenText = content.substring(charLimit);
+
+                    // Update the content to show only the visible text
+                    $(this).html(visibleText +
+                        '<span class="ellipsis">...</span><span class="hidden-text" style="display:none;">' +
+                        hiddenText + '</span><span class="show-more">Show more</span>');
+                }
+            });
+
+            // Show more link click event handler
+            $('table').on('click', '.show-more', function() {
+                var hiddenText = $(this).prev('.hidden-text');
+                var ellipsis = $(this).prevAll('.ellipsis');
+                hiddenText.toggle();
+                ellipsis.toggle();
+                $(this).text(hiddenText.is(':visible') ? 'Show less' : 'Show more');
+            });
+        });
+    </script>
 @endsection

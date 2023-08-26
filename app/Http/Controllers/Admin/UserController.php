@@ -90,6 +90,9 @@ class UserController extends Controller
         ]);
         $user = User::find($user->id);
         $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->user_password = $request->password;
         $user->save();
         return redirect()->route('admin.users.index')->with('success', 'User Updated');
     }

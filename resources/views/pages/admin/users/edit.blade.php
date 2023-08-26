@@ -31,20 +31,21 @@
                                     onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
                                     class="form-control" maxlength="60">
                             </div>
-                            <input type="hidden" value="{{ $user->email }}" name="email" id="email">
-                            <!--<div class="parsley-input col-md-6  mg-b-20">-->
-                            <!--    <label>{{ __('Email') }}<span class="tx-danger">*</span></label>-->
-                            <!--    <input type="email" value="{{ $user->email }}" name="email" id="email"-->
-                            <!--        class="form-control" maxlength="60">-->
-                            <!--</div>-->
-                            <!--<div class="parsley-input col-md-6  mg-b-20">-->
-                            <!--    <label>{{ __('Password') }}<span class="tx-danger">*</span></label>-->
-                            <!--    <input type="password" value="{{ $user->user_password }}" name="password" id="password"-->
-                            <!--        class="form-control" minlength="4" maxlength="30">-->
-                            <!--    <div>-->
-                            <!--        <input type="checkbox" class="mr-2" onclick="showPassword()">Show Password-->
-                            <!--    </div>-->
-                            <!--</div>-->
+                            
+                            {{-- <input type="hidden" value="{{ $user->email }}" name="email" id="email"> --}}
+                            <div class="parsley-input col-md-6  mg-b-20">
+                                <label>{{ __('Email') }}<span class="tx-danger">*</span></label>
+                                <input type="email" value="{{ $user->email }}" name="email" id="email"
+                                    class="form-control" maxlength="60">
+                            </div>
+                            <div class="parsley-input col-md-6  mg-b-20">
+                                <label>{{ __('Password') }}<span class="tx-danger">*</span></label>
+                                <input type="password" value="{{ $user->user_password }}" name="password" id="password"
+                                    class="form-control" minlength="4" maxlength="30">
+                                <div>
+                                    <input type="checkbox" class="mr-2" onclick="showPassword()">Show Password
+                                </div>
+                            </div>
                         </div>
                         <br>
                         <div class="row">

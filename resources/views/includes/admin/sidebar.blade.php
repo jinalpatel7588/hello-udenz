@@ -41,7 +41,7 @@
                 <li @if (Route::currentRouteName() == 'admin.contactUs') class="mm-active" @endif>
                     <a href="{{ route('admin.contactUs') }}"
                         class="waves-effect waves-light @if (Route::currentRouteName() == 'admin.contactUs') active @endif">
-                        <i class="fas fa-chart-bar"></i>
+                        <i class="fa fa-address-book" aria-hidden="true"></i>
                         <span>Contact Us</span>
                     </a>
                 </li>
@@ -49,7 +49,7 @@
                 <li @if (Route::currentRouteName() == 'waitingList') class="mm-active" @endif>
                     <a href="{{ route('waitingList') }}"
                         class="waves-effect waves-light @if (Route::currentRouteName() == 'waitingList') active @endif">
-                        <i class="fas fa-chart-bar"></i>
+                        <i class="fas fa-list-alt"></i>
                         <span>Waiting List</span>
                     </a>
                 </li>
