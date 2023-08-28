@@ -78,6 +78,7 @@ Route::middleware(['admin.type:' . UserType::ADMIN])->group(function () {
          Route::get('login/{user}', [UserController::class, 'login'])->name('login');
          Route::patch('/{user}', [UserController::class, 'statusChange'])->name('status');
       });
+      Route::get('/waiting-list/export-csv', [HomeController::class, 'exportCSV'])->name('waitingList.exportCSV');
    });
 });
 
@@ -113,6 +114,8 @@ Route::get('/unique-email', [HomeController::class, 'uniqueEmail'])->name('uniqu
 Route::post('/contact-us', [ContactUsController::class, 'store'])->name('contact.store');
 
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('admin.contactUs');
+
+Route::get('/contact-us/{contact}', [ContactUsController::class, 'statusChange'])->name('admin.contactUs.status');
 
 Route::delete('/contact-us/{contact}', [ContactUsController::class, 'destroy'])->name('admin.contactUs.destroy');
 

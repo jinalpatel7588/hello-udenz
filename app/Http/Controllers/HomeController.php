@@ -6,6 +6,7 @@ use App\Mail\MyMail;
 use App\Mail\WaitingMail;
 use App\Models\WaitingList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -52,6 +53,33 @@ class HomeController extends Controller
         return view('pages.admin.waiting-list.index', compact('waitingList'));
     }
 
+    public function exportCSV()
+    {
+        $fileName = 'WaitingList.csv';
+        $WaitingList = WaitingList::get();
+        $headers = array(
+            "Content-type"        => "text/csv",
+            "Content-Disposition" => "attachment; filename=$fileName",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
+        $columns = array('Name', 'Number', 'waiting Email', 'Created');
+        $callback = function () use ($WaitingList, $columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+            foreach ($WaitingList as $list) {
+                $row['Name']  = $list->name;
+                $row['Number']    = $list->number;
+                $row['waiting Email']    = $list->waitingEmail;
+                $row['Created']  = $list->created_at;
+                fputcsv($file, array($row['Name'], $row['Number'], $row['waiting Email'], $row['Created']));
+            }
+            fclose($file);
+        };
+        return response()->stream($callback, 200, $headers);
+
+    }
     public function uniqueEmail(Request $request)
     {
         $uniemail = WaitingList::where('waitingEmail', $request->waitingEmail)->get();

@@ -95,7 +95,7 @@
                     </div>
                     <div class="work-box px-lg-5 text-center mb-5 mb-lg-0">
                         <div class="work-icon bg-soft-success mb-4">
-                            <img src="images/group.svg" class="w-75" style="vertical-align: initial;">
+                            <img src="{{ asset('new_front_assets/images/group.svg') }}" class="w-75" style="vertical-align: initial;">
                             <!-- <i class="mdi mdi-palette-outline"></i> -->
                         </div>
                         <h5 class="fw-semibold">2. Create a room within the platform </h5>
@@ -295,15 +295,15 @@
                     </div> --}}
                 {{-- <button type="submit" class="btn btn-apply email-alert-btn">Apply Now</button> --}}
                 <button type="button" class="btn new-email-btn" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">Apply Now</button>
+                    data-bs-target="#exampleModal1">Apply Now</button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Apply Now</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel1">Apply Now</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -328,7 +328,7 @@
                                             placeholder="Enter your mobile number"  maxlength="20"
                                             onkeypress="return /[0-9]/i.test(event.key)">
                                     </div>
-                                    <button type="submit" class="btn new-email-btn" aria-labelledby="exampleModalLabel"
+                                    <button type="submit" class="btn new-email-btn" aria-labelledby="exampleModalLabel1"
                                         aria-hidden="true">Apply Now</button>
                                 </form>
                             </div>
@@ -471,15 +471,15 @@ background-color: black;position: fixed; width: 100%;"
                 email: {
                     required: true,
                     validate_email: true,
-                    remote: {
-                        url: "{{ url('uniqueemail') }}",
-                        type: "GET",
-                        data: {
-                            action: function() {
-                                return "1";
-                            },
-                        }
-                    }
+                    // remote: {
+                    //     url: "{{ url('uniqueemail') }}",
+                    //     type: "GET",
+                    //     data: {
+                    //         action: function() {
+                    //             return "1";
+                    //         },
+                    //     }
+                    // }
                 },
 
             },
@@ -494,7 +494,7 @@ background-color: black;position: fixed; width: 100%;"
                 email: {
                     required: "Please enter email address",
                     validate_email: "Please enter a valid email address",
-                    remote: "Email ID already registered",
+                    // remote: "Email ID already registered",
                 },
                 subject: {
                     required: "Please enter subject",

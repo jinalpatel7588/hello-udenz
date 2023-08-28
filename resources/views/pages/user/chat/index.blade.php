@@ -37,60 +37,123 @@
     <link rel='stylesheet' href='{{ asset('new_assets/chat_css/style.css') }}'>
     <link rel="stylesheet" href="{{ asset('new_assets/chat_css/typography.css') }}">
     <link rel="stylesheet" href="{{ asset('new_assets/chat_css/responsive.css') }}">
-   <!-- <style>-->
+    <!-- <style>-->
 
-   <!--     * {-->
-   <!--     font-family: Open Sans;-->
-   <!--     }-->
-   <!--     .footer-distributed{-->
-   <!--         background: #0072FF;-->
-   <!--     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);-->
-   <!--     box-sizing: border-box;-->
-   <!--     width: 100%;-->
-   <!--     text-align: left;-->
-   <!--     font: bold 16px sans-serif;-->
-   <!--     padding: 50px 50px;-->
-   <!--     }-->
-   <!--     .footer-distributed .footer-left,-->
-   <!--     .footer-distributed .footer-center,-->
-   <!--     .footer-distributed .footer-right{-->
-   <!--     display: inline-block;-->
-   <!--     vertical-align: top;-->
-   <!--     }-->
+    <!--     * {-->
+    <!--     font-family: Open Sans;-->
+    <!--     }-->
+    <!--     .footer-distributed{-->
+    <!--         background: #0072FF;-->
+    <!--     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);-->
+    <!--     box-sizing: border-box;-->
+    <!--     width: 100%;-->
+    <!--     text-align: left;-->
+    <!--     font: bold 16px sans-serif;-->
+    <!--     padding: 50px 50px;-->
+    <!--     }-->
+    <!--     .footer-distributed .footer-left,-->
+    <!--     .footer-distributed .footer-center,-->
+    <!--     .footer-distributed .footer-right{-->
+    <!--     display: inline-block;-->
+    <!--     vertical-align: top;-->
+    <!--     }-->
 
-   <!--     .footer ul{-->
-   <!--     display: inline-block;-->
-   <!--     }-->
-   <!--     .footerLinks ul li {-->
-   <!--         display: inline-block;-->
-   <!--     }-->
+    <!--     .footer ul{-->
+    <!--     display: inline-block;-->
+    <!--     }-->
+    <!--     .footerLinks ul li {-->
+    <!--         display: inline-block;-->
+    <!--     }-->
 
-   <!--     .footerLinks {-->
-   <!--         float: right;-->
-   <!--     }-->
+    <!--     .footerLinks {-->
+    <!--         float: right;-->
+    <!--     }-->
 
-   <!--</style>-->
+    <!--</style>-->
 </head>
 
 <body>
+    <style>
+        .notification-icon {
+            position: relative;
+            display: inline-block;
+            margin: 4PX;
+        }
+
+        .notification-icon .icon {
+            background-color: #9e9e9e;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notification-icon .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+    </style>
     <header class="main-header">
         <nav class="navbar navbar-expand-lg px-lg-0 justify-content-end">
             <ul class="navbar-nav align-items-center navbar-top-icon ml-auto w-100 justify-content-between">
                 <div class="logo-box ml-5">
-                        <span class="logo-lg dash-logo">
-                            <img src="{{ asset('new_assets/images/logo-black.png') }}" alt="" style="width: 190px;" >
-                        </span>
+                    <span class="logo-lg dash-logo">
+                        <img src="{{ asset('new_assets/images/logo-black.png') }}" alt="" style="width: 190px;">
+                    </span>
+                </div>
+                <li class="nav-item d-flex">
+                    <div class="notification-icon ">
+                        <div class="icon fa fa-bell">
+                            @if (count($Notifications) != 0)
+                            <span class="badge">{{ count($Notifications) }}</span>
+                            @endif
+                        </div>
                     </div>
-                <li class="nav-item">
                     
-                                    <div class="dropdown show profile-popup-wrap">
+                    {{-- <div class="dropdown notification">
+                                <a class="nav-link noti-icon dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <div class="ringBell">
+                                        <span class="-count">{{ count($Notifications) }}</span>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu align-notify"> --}}
+                    {{-- <li>
+                                        @if (isset($ClinicApprovals) && count($ClinicApprovals))
+                                        @foreach ($ClinicApprovals as $row)
+                                            
+                                        <p class="notify-flex">{{ $row->name }} clinic waiting
+                                            for admin Approval</p>
+                                        @endforeach
+                                        @else
+                                        no data found
+                                        @endif
+                                    </li> --}}
+                    {{-- <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+
+                            </div> --}}
+
+                    <div class="dropdown show profile-popup-wrap">
                         <a class="profile-circle" href="#" role="button" id="profile-menu" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             @if (Auth::user())
-                                @if(!empty(Auth::user()->photo) && file_exists(Auth::user()->photo))
-                                    <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" />
+                                @if (!empty(Auth::user()->photo) && file_exists(Auth::user()->photo))
+                                    <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"
+                                        alt="your image" />
                                 @else
-                                    <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" />
+                                    <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"
+                                        alt="profile image" />
                                 @endif
                             @endif
 
@@ -105,10 +168,13 @@
                                         <a class="profile-circle" href="#" role="button" id="profile-menu"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             @if (Auth::user())
-                                                @if(!empty(Auth::user()->photo) && file_exists(Auth::user()->photo))
-                                                    <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"  alt="your image" />
+                                                @if (!empty(Auth::user()->photo) && file_exists(Auth::user()->photo))
+                                                    <img class="nav-profile-img" src="{{ asset(Auth::user()->photo) }}"
+                                                        alt="your image" />
                                                 @else
-                                                    <img class="nav-profile-img" src="{{ asset('new_assets/images/profile.png') }}"  alt="profile image" />
+                                                    <img class="nav-profile-img"
+                                                        src="{{ asset('new_assets/images/profile.png') }}"
+                                                        alt="profile image" />
                                                 @endif
                                             @endif
                                         </a>
@@ -119,12 +185,13 @@
                                         </span>
                                     </div>
                                     <div class="profile-body">
-                                        <a class="paragraph-regular" href="{{ route('user.edit',Auth::user()->id) }}">
+                                        <a class="paragraph-regular" href="{{ route('user.edit', Auth::user()->id) }}">
                                             <i class="mdi mdi-logout-variant"></i>{{ __('Profile') }}
                                         </a>
                                     </div>
                                     <div class="profile-body">
-                                        <a class="paragraph-regular" href="{{ route('user.ChangePass',Auth::user()->id) }}">
+                                        <a class="paragraph-regular"
+                                            href="{{ route('user.ChangePass', Auth::user()->id) }}">
                                             <i class="mdi mdi-logout-variant"></i>{{ __('Change Password') }}
                                         </a>
                                     </div>
@@ -159,7 +226,7 @@
             </div>
             <div class="chat-right" style="border-left: 1px solid #f1ebf5; display: flex; flex-direction: column;">
                 <div class="card chat-post-card h-100" id="message_details_id">
-                <h3 class="text-center mt-5">No Chat Found</h3>
+                    <h3 class="text-center mt-5">No Chat Found</h3>
                 </div>
                 <div class="chat-post-footer" style="display:none">
                     {{-- <label for="profile" id="profile_error" class="error" style="margin-left: 68px;"></label> --}}
@@ -175,15 +242,14 @@
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M29.7607 16.9743L17.4783 29.2567C15.7809 30.9541 13.4788 31.9077 11.0783 31.9077C6.0796 31.9077 2.02734 27.8554 2.02734 22.8567C2.02734 20.4562 2.98092 18.1541 4.67831 16.4567L17.3267 3.80832C18.4583 2.67673 19.9931 2.04102 21.5934 2.04102C24.9258 2.04102 27.6273 4.74252 27.6273 8.07499C27.6273 9.6753 26.9916 11.2101 25.86 12.3417L13.5777 24.624C13.0119 25.1898 12.2445 25.5077 11.4443 25.5077C9.7781 25.5077 8.42734 24.1569 8.42734 22.4907C8.42734 21.6905 8.7452 20.9232 9.311 20.3574L21.2273 8.44102"
-                                            stroke
-                                            ="#605866" stroke-width="2" />
+                                            stroke="#605866" stroke-width="2" />
                                     </svg>
                                 </label>
-                                <input type="file" name="my_file[]" id="my_file" onchange="readURL(this);" multiple
-                                    style="display: none;">
+                                <input type="file" name="my_file[]" id="my_file" onchange="readURL(this);"
+                                    multiple style="display: none;">
                             </button>
-                            <button type="button" class="send-button sent_messages_loader lick-chat-msg-popup" id="send_message"
-                                onclick="sentmsg()">send</button>
+                            <button type="button" class="send-button sent_messages_loader lick-chat-msg-popup"
+                                id="send_message" onclick="sentmsg()">send</button>
                         </div>
                     </div>
                 </div>
@@ -333,7 +399,7 @@
                 },
                 cache: false,
                 success: function(html) {
-                    $(".chat-post-footer").css("display","block");
+                    $(".chat-post-footer").css("display", "block");
                     // if (html.status != 200) {
                     //     alert(html.message);
                     // } else {
@@ -343,7 +409,7 @@
                     $(".service_content").removeClass("active");
                     $(".service_content-" + roomId).addClass("active");
                     $('#focus-bottom').focus();
-                   // $("#message").val('');
+                    // $("#message").val('');
                     $('#message').focus();
                 }
             });
@@ -430,7 +496,7 @@
                         });
                         {{--  $("#message").val('');
                         $('#message').focus();  --}}
-                        $("#message_details_id").html(response);
+                        $("#message_details_id").html(response.message);
                         $(".images_loader").html(`<svg width="33" height="33" viewBox="0 0 33 33" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path

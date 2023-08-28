@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ChatRoom;
 use App\Models\ChatRoomMember;
 use App\Models\Message;
+use App\Models\MessageNotifications;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,10 @@ class ChatController extends Controller
         if ($request->ajax()) {
             return view('pages.user.chat.list', compact('chats'));
         }
-        return view('pages.user.chat.index', compact('chats', 'latestMessageId'));
+        $Notifications = MessageNotifications::where('user_id', Auth::user()->id)
+            ->where('is_seen', 0)
+            ->get();
+        return view('pages.user.chat.index', compact('chats', 'latestMessageId', 'Notifications'));
     }
 
     public function createChat(Request $request)
@@ -60,6 +64,14 @@ class ChatController extends Controller
 
     public function messageDetails(Request $request)
     {
+        $users = MessageNotifications::where('chat_room_id', $request->roomId)->where('user_id', Auth::user()->id)->get();
+        if ($users != null) {
+            foreach ($users as $user) {
+                $user->is_seen = 1;
+                $user->save();
+            }
+        }
+        // dd($request->all(), $users);
         $url = Helper::getBaseUrl() . "room/get-chat";
         $post = $request->all();
         $post['chat_room_id'] = $request->roomId;
@@ -69,7 +81,10 @@ class ChatController extends Controller
             return response()->json(["status" => 400, "message" => $messages->message]);
         } else {
             $chatRoom = ChatRoom::where('id', $request->roomId)->first();
-            return view('pages.user.chat.details', compact('chatRoom', 'messages'));
+            $Notifications = MessageNotifications::where('user_id', Auth::user()->id)
+            ->where('is_seen', 0)
+            ->get();
+            return view('pages.user.chat.details', compact('chatRoom', 'messages','Notifications'));
         }
     }
     public function getattachment(Request $request)

@@ -24,7 +24,7 @@
 </style>
 
 <div class="login-bg " style="position: relative;">
-    <div style="width: 100%; background-color: #3b62ac;" class="login-background">
+    <div style="width: 100%; background-color: #1f61eb;" class="login-background">
         <div class="container">
             <div class="row justify-content-center align-items-center" style="height: 100vh;">
 

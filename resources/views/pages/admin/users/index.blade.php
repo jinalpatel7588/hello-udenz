@@ -60,11 +60,11 @@
                                             @if ($user->status == '1')
                                                 <button type="button"
                                                     class="btn btn-sm btn-success waves-effect waves-light"
-                                                    onclick="sweetAlertAjax('PATCH','{{ route('admin.users.status', $user->id) }}', 'Are You Sure To Deactive')">Active</button>
+                                                    onclick="sweetAlertAjax('PATCH','{{ route('admin.users.status', $user->id) }}', 'Deactivate user account?')">Active</button>
                                             @else
                                                 <button type="button"
                                                     class="btn btn-sm btn-danger waves-effect waves-light"
-                                                    onclick="sweetAlertAjax('PATCH','{{ route('admin.users.status', $user->id) }}', 'Are You Sure To Active')">Deactive</button>
+                                                    onclick="sweetAlertAjax('PATCH','{{ route('admin.users.status', $user->id) }}', 'Activate user account?')">Inactive</button>
                                             @endif
                                         </td>
                                         <td>
